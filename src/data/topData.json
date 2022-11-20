@@ -1,0 +1,92 @@
+[
+    {
+        "image": "../images/nft-01.jpg",
+        "logo": "../images/logo-01.png",
+        "name": "NFT名が入ります。NFT名が...",
+        "collection":  "コレクション名が入ります。",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 0,
+        "favourite": 9
+    },
+    {
+        "image": "../images/nft-01.jpg",
+        "logo": "../images/logo-01.png",
+        "name": "ウイスキーNFT",
+        "collection":  "刻良",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 1,
+        "favourite": 98
+    },
+    {
+        "image": "../images/nft-02.jpg",
+        "logo": "../images/logo-02.png",
+        "name": "信長NFT",
+        "collection":  "信長",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 0,
+        "favourite": 9
+    },
+    {
+        "image": "../images/nft-03.jpg",
+        "logo": "../images/logo-03.png",
+        "name": "Peripheral illusion",
+        "collection":  "World of Women Collabs",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 1,
+        "favourite": 98
+    },
+    {
+        "image": "../images/nft-04.jpg",
+        "logo": "../images/logo-04.png",
+        "name": "Peripheral illusion",
+        "collection":  "World of Women Collabs",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 0,
+        "favourite": 9
+    },
+    {
+        "image": "../images/nft-01.jpg",
+        "logo": "../images/logo-01.png",
+        "name": "NFT名が入ります。NFT名が...",
+        "collection":  "コレクション名が入ります。",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 0,
+        "favourite": 9
+    },
+    {
+        "image": "../images/nft-01.jpg",
+        "logo": "../images/logo-01.png",
+        "name": "ウイスキーNFT",
+        "collection":  "刻良",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 1,
+        "favourite": 98
+    },
+    {
+        "image": "../images/nft-02.jpg",
+        "logo": "../images/logo-02.png",
+        "name": "信長NFT",
+        "collection":  "信長",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 0,
+        "favourite": 9
+    },
+    {
+        "image": "../images/nft-03.jpg",
+        "logo": "../images/logo-03.png",
+        "name": "Peripheral illusion",
+        "collection":  "World of Women Collabs",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 1,
+        "favourite": 98
+    },
+    {
+        "image": "../images/nft-04.jpg",
+        "logo": "../images/logo-04.png",
+        "name": "Peripheral illusion",
+        "collection":  "World of Women Collabs",
+        "price": "1,500円 (0.364DIV)",
+        "myFavourite": 0,
+        "favourite": 9
+    }
+]

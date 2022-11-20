@@ -17,8 +17,21 @@ const CardItem = (props) => {
             <p className={styles.cardCollection}>
                 {props.collection}
             </p>
+            {
+                !props.isSlider && (
+                    <>
+                        <p className={styles.cardPrice}>
+                            {props.price}
+                        </p>
+                        <div className={styles.cardFavourite}>
+                            <div className={styles.cardFavouriteIcon}>
+                               
+                            </div>
+                        </div>
+                    </>
+                )
+            }
         </div>
     )
 }
-
 export default CardItem

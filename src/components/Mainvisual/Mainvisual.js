@@ -71,6 +71,7 @@ const Mainvisual = () => {
                                 logo={item.node.logo.childImageSharp.fluid}
                                 name={item.node.name}
                                 collection={item.node.collection}
+                                isSlider
                             />
                         </SwiperSlide>
                     )
