@@ -1,0 +1,55 @@
+.mv {
+    background-color: #f5fe7d;
+    display: flex;
+    justify-content: space-between;
+    padding: 103px 0 113px 8.4%;
+    overflow: hidden;
+    &-content {
+        margin-top: 33px;
+        &-txt {
+            font-size: 56px;
+            color: #222;
+            font-weight: bold;
+            line-height: 1.25;
+            letter-spacing: 0.04em;
+            margin-bottom: 30px;
+            span {
+                font-size: 76px;
+            }
+        }
+        &-btn {
+            width: 318px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+            background-color: #000;
+        }
+    }
+    &-slider {
+        width: 63%;
+        margin-right: -77px;
+        position: relative;
+        &-content {
+            position: relative;
+        }
+    }
+}
+.pagination {
+    position: absolute;
+    bottom: -45px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+        display: block;
+        width: 52px;
+        height: 7px;
+        background-color: #000;
+        margin: 0 7.5px !important;
+        border-radius: 0;
+        opacity: 1;
+    }
+}
