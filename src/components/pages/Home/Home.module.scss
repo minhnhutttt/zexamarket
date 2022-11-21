@@ -1,12 +1,14 @@
 .items {
     padding: 92px 0;
+    overflow: hidden;
     &-wrap {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin: 35px -15px 0;
+        margin: 35px -15px 30px;
     }
 }
 .item {
     padding: 0 15px;
+    margin-bottom: 40px;
 }

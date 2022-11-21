@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image"
 import * as styles from "./Card.module.scss"
+import { FaHeart } from 'react-icons/fa';
 
 const CardItem = (props) => {
     return (
@@ -24,9 +25,10 @@ const CardItem = (props) => {
                             {props.price}
                         </p>
                         <div className={styles.cardFavourite}>
-                            <div className={styles.cardFavouriteIcon}>
-                               
-                            </div>
+                            <button type="button" className={styles.cardFavouriteIcon}>
+                                <FaHeart style={{color: props.myFavourite ? "#fff" : "#db0039"}} />
+                            </button>
+                            <p className={styles.cardFavouriteNumber}>{props.favourite}</p>
                         </div>
                     </>
                 )

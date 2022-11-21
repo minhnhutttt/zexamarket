@@ -2,6 +2,7 @@
     width: 350px;
     background-color: #000;
     padding: 15px;
+    position: relative;
     &-img {
         border-radius: 10px;
         overflow: hidden;
@@ -11,7 +12,7 @@
         margin: -40px auto 0;
     }
     &-name {
-        margin-top: 8px;
+        margin-top: 10px;
         font-size: 18px;
         color: #fff;
         text-align: center;
@@ -22,5 +23,31 @@
         font-size: 14px;
         color: #f5fe7d;
         text-align: center;
+    }
+    &-price {
+        margin: 20px 0 10px;
+        font-size: 16.5px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+    }
+    &-favourite {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 15px;
+        bottom: 20px;
+        &-icon {
+            background: transparent;
+            outline: none;
+            border: 0;
+            padding: 0;
+        }
+        &-number {
+            color: #fff;
+            font-size: 16px;
+            margin-left: 4px;
+            margin-bottom: 5px;
+        }
     }
 }
