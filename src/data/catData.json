@@ -1,41 +1,33 @@
 [
     {
-        "id": 1,
         "name": "Category1",
         "image": "../images/category-01.png"
     },
     {
-        "id": 2,
         "name": "Category2",
         "image": "../images/category-02.png"
     },
     {
-        "id": 3,
         "name": "Category3",
         "image": "../images/category-03.png"
     },
     {
-        "id": 4,
         "name": "Category4",
         "image": "../images/category-04.png"
     },
     {
-        "id": 5,
         "name": "Category5",
         "image": "../images/category-05.png"
     },
     {
-        "id": 6,
         "name": "Category6",
         "image": "../images/category-06.png"
     },
     {
-        "id": 7,
         "name": "Category7",
         "image": "../images/category-07.png"
     },
     {
-        "id": 8,
         "name": "Category8",
         "image": "../images/category-08.png"
     }

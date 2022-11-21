@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../../Title/Title"
 import { useStaticQuery, graphql } from "gatsby"
-import * as styles from "./Home.module.scss"
+import * as styles from "./Items.module.scss"
 import CardItem from "../../Card/CardItem"
 import ButtonLink from "../../Button/ButtonLink";
 

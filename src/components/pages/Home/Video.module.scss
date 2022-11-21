@@ -1,0 +1,27 @@
+.video {
+    background-color: #f5fe7d;
+    padding: 60px;
+    &-wrap {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 30px;
+        padding: 80px 0;
+    }
+    &-player {
+        width: 62.8%;
+    }
+    &-content {
+        flex: 1;
+        margin-left: 3%;
+    }
+    &-ttl {
+        font-size: 36px;
+        line-height: 1.5;
+        margin-bottom: 32px;
+    }
+    &-txt {
+        font-size: 24px;
+        line-height: 1.54;
+    }
+}
