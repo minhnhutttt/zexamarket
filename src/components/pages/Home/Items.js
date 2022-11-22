@@ -2,8 +2,8 @@ import React from "react";
 import Title from "../../Title/Title"
 import { useStaticQuery, graphql } from "gatsby"
 import * as styles from "./Items.module.scss"
-import CardItem from "../../Card/CardItem"
 import ButtonLink from "../../Button/ButtonLink";
+import CardItems from "../../Card/CardItems";
 
 const Items = () => {
   const data = useStaticQuery(graphql`
@@ -39,26 +39,7 @@ const Items = () => {
   return (
     <div className={styles.items}>
       <Title>販売中 NFTs</Title>
-      <div className={styles.itemsWrap}>
-        {
-          data.allTopDataJson.edges.map((item, index) => {
-            return (
-              <div className={styles.item} key={index}>
-                <CardItem
-                  id={item.node.id}
-                  img={item.node.image.childImageSharp.fluid}
-                  logo={item.node.logo.childImageSharp.fluid}
-                  name={item.node.name}
-                  collection={item.node.collection}
-                  price={item.node.price}
-                  myFavourite={item.node.myFavourite}
-                  favourite={item.node.favourite}
-                />
-              </div>
-            )
-          })
-        }
-      </div>
+      <CardItems data={data.allTopDataJson.edges} />
       <ButtonLink to="#">もっと見る</ButtonLink>
     </div>
   )

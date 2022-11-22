@@ -1,0 +1,30 @@
+.related {
+    padding: 110px 0;
+    &-ttl {
+        margin-bottom: 55px;
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+            span {
+                margin-left: 10px;
+            }
+        }
+        &:after {
+            content: "";
+            display: block;
+            margin: 22px auto 0;
+            width: 130px;
+            height: 4px;
+            background-color: #000;
+            @media screen and (max-width: 768px) {
+                margin-top: 10px;
+                width: 100px;
+                height: 2px;
+            }
+        }
+    }
+}

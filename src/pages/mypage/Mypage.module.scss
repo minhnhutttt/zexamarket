@@ -1,0 +1,196 @@
+.single {
+    padding: 70px 20px;
+    &-wrap {
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+        border: 1px solid #333;
+        padding: 60px 55px;
+    }
+    &-flex {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 65px;
+    }
+    &-col {
+        width: 47.8%;
+    }
+    &-thumb {
+        background-color: #000;
+        padding: 20px;
+        box-shadow: 3px 3px 5px rgba(46, 4, 90, 0.2);
+        height: 100%;
+        img {
+            border-radius: 20px;
+        }
+    }
+    &-article {
+        border: 1px solid #999;
+        height: 100%;
+        padding: 36px 55px 12px;
+        &-logo {
+            display: flex;
+            align-items: center;
+            padding: 7px 20px;
+            border-bottom: 1px solid #333;
+            img {
+                width: 50px;
+            }
+            span {
+                font-size: 22px;
+                margin-left: 10px;
+            }
+        }
+        &-content {
+            padding: 15px 10px;
+        }
+        &-name {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+        &-txt {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        &-tag {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+            p {
+                font-size: 16px;
+                padding: 10px 8px;
+                border: 1px solid #333;
+                border-radius: 5px;
+            }
+        }
+        &-btn {
+            margin: 70px 0 35px;
+        }
+        &-user {
+            padding: 20px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &-avatar {}
+            &-info {
+                margin-left: 10px;
+            }
+            &-owner {
+                font-size: 14px;
+                color: #999;
+                margin-bottom: 6px;
+            }
+            &-name {
+                font-size: 16px;
+            }
+        }
+    }
+    &-block {
+        border: 1px solid #999;
+        height: 100%;
+    }
+    &-head {
+        display: flex;
+        align-items: center;
+        font-size: 28px;
+        font-weight: bold;
+        padding: 35px 50px;
+        background-color: #efefef;
+        border-bottom: 1px solid #999;
+        span {
+            margin-left: 10px;
+        }
+    }
+    &-list {
+        padding: 50px 45px;
+        div {
+            display: flex;
+            justify-content: space-between;
+            &+div {
+                margin-top: 24px;
+            }
+            p {
+                font-size: 22px;
+                & + p {
+                    margin-left: 10px;
+                }
+                &:nth-of-type(1) {
+                    font-weight: bold;
+                }
+                a {
+                    color: #0077e6;
+                }
+            }
+        }
+    }
+    &-chart {
+        height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &-table {
+        border: 1px solid #999;
+        .single-head {
+            padding: 28px 50px;
+        }
+        &-content {
+            padding: 35px 40px 25px;
+            table {
+                width: 100%;
+                vertical-align: middle;
+                tr {
+                    &:nth-of-type(2) {
+                        td {
+                            padding-top: 20px;
+                        }
+                    }
+                }
+                th {
+                    font-size: 22px;
+                    text-align: left;
+                    border-bottom: 1px solid #333;
+                    padding: 15px 5px;
+                    &:nth-of-type(1) {
+                        text-align: center;
+                    }
+                }
+                td {
+                    font-size: 22px;
+                    vertical-align: middle;
+                    padding: 10px;
+                    &:nth-of-type(1) {
+                        text-align: center;
+                    }
+                    &:last-of-type {
+                        width: 140px;
+                    }
+                }
+            }
+            &-img {
+                display: inline-flex;
+                align-items: center;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                span {
+                    background-color: #000;
+                    padding: 2px;
+                    display: inline-block;
+                }
+                img {
+                    width: 51px;
+                    border-radius: 5px;
+                }
+            }
+            &-date {
+                font-size: 16px;
+                text-align: right;
+            }
+        }
+    }
+}
