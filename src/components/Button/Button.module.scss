@@ -11,4 +11,9 @@
     color: #fff;
     background-color: #000;
     border-radius: 5px;
+    @media screen and (max-width: 768px) {
+        height: 60px;
+        max-width: 320px;
+        font-size: 16px;
+    }
 }

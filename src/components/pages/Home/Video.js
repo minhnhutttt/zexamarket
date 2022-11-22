@@ -5,7 +5,7 @@ const Video = () => {
         <div className={styles.video}>
             <div className={styles.videoWrap}>
                 <div className={styles.videoPlayer}>
-                    <iframe width="100%" height="600" src="https://www.youtube.com/embed/NNQLJcJEzv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NNQLJcJEzv0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 </div>
                 <div className={styles.videoContent}>
                     <h3 className={styles.videoTtl}>

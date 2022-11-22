@@ -1,14 +1,26 @@
 .items {
     padding: 92px 0;
     overflow: hidden;
+    @media screen and (max-width: 768px) {
+        padding: 50px 20px;
+    }
     &-wrap {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         margin: 35px -15px 30px;
+        @media screen and (max-width: 768px) {
+            margin-top: 20px;
+        }
     }
 }
 .item {
     padding: 0 15px;
     margin-bottom: 40px;
+    width: 380px;
+    @media screen and (max-width: 768px) {
+        width: 320px;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
 }

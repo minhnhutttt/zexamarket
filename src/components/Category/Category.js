@@ -24,7 +24,6 @@ const Category = () => {
             }
         }
     `)
-    console.log(data)
     return (
         <div className={styles.category}>
             <Title>コレクション</Title>

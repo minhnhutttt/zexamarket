@@ -3,8 +3,11 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import * as styles from "./Header.module.scss"
 import { FaSearch } from 'react-icons/fa';
+import { useState } from "react"
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   return (
     <header className={styles.header}>
       <Link to={'/'} className={styles.headerLogo}>
@@ -37,6 +40,60 @@ const Header = () => {
         <div className={styles.headerSearch}>
           <span className={styles.headerSearchIcon}><FaSearch /></span>
           <input type="text" placeholder="商品名、コレクション名、ユーザー名で探す。" />
+        </div>
+        <div className={styles.header__toggle}>
+          <div className={styles.searchSp}>
+            <button type="button" onClick={() => setIsSearchOpen(!isSearchOpen)}>
+              <FaSearch />
+            </button>
+            {isSearchOpen &&
+              <div className={styles.headerSearch}>
+                <span className={styles.headerSearchIcon}><FaSearch /></span>
+                <input type="text" placeholder="商品名、コレクション名、ユーザー名で探す。" />
+              </div>
+            }
+          </div>
+          <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+            <div className={styles.hamburgerLines} >
+              <span className={styles.line}></span>
+              <span className={styles.line}></span>
+              <span className={styles.line}></span>
+            </div>
+          </div>
+          {isOpen &&
+            <div className={styles.headerMenuSp}>
+              <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+                <div className={`${styles.hamburgerLines} ${styles.isActive}`} >
+                  <span className={styles.line}></span>
+                  <span className={styles.line}></span>
+                  <span className={styles.line}></span>
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <Link to={'/'}>
+                    <StaticImage src="../../images/ic-user.png" alt="ZEXAMARKET" />
+                    <span>マイページ</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={'/'}>
+                    <span>マーケットプレイス</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={'/'}>
+                    <span>ストア</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={'/'}>
+                    <span>ゼクサマーケットとは？</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          }
         </div>
       </div>
     </header>

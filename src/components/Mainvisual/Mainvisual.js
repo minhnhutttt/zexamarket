@@ -37,51 +37,61 @@ const Mainvisual = () => {
             }
         }
     `)
-  return (
-    <div className={styles.mv}>
-        <div className={styles.mvContent}>
-            <h4 className={styles.mvContentTxt}>
-                過去、現在、未来 <br />
-                時をつむぐ <br />
-                NFTマーケットプレイス <br />
-                <span>ZEXAMARKET</span>
-            </h4>
-            <Link to={'/'} className={styles.mvContentBtn}>
-                マーケットプレイス
-            </Link>
+    return (
+        <div className={styles.mv}>
+            <div className={styles.mvContent}>
+                <h4 className={styles.mvContentTxt}>
+                    過去、現在、未来 <br />
+                    時をつむぐ <br />
+                    NFTマーケットプレイス <br />
+                    <span>ZEXAMARKET</span>
+                </h4>
+                <Link to={'/'} className={styles.mvContentBtn}>
+                    マーケットプレイス
+                </Link>
+            </div>
+            <div className={styles.mvSlider}>
+                <div className={styles.mvSliderContent}
+                >
+                    <Swiper
+                        loop={true}
+                        modules={[Pagination]}
+                        pagination={{
+                            el: `.${styles.pagination}`,
+                            clickable: true,
+                        }}
+                        breakpoints={{
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 15,
+                            },
+                            1280: {
+                                slidesPerView: 3,
+                                spaceBetween: 30,
+                            },
+                        }}
+                    >
+                        {
+                            data.allSliderDataJson.edges.map((item, index) => {
+                                return (
+                                    <SwiperSlide key={index}>
+                                        <CardItem
+                                            img={item.node.image.childImageSharp.fluid}
+                                            logo={item.node.logo.childImageSharp.fluid}
+                                            name={item.node.name}
+                                            collection={item.node.collection}
+                                            isSlider
+                                        />
+                                    </SwiperSlide>
+                                )
+                            })
+                        }
+                    </Swiper>
+                    <div className={styles.pagination}></div>
+                </div>
+            </div>
         </div>
-        <div className={styles.mvSlider}>
-        <Swiper
-            slidesPerView={3}
-            spaceBetween={30}
-            loop={true}
-            modules={[Pagination]}
-            pagination={{
-                el: `.${styles.pagination}`,
-                clickable: true,
-            }}
-            className={styles.mvSliderContent}
-        >
-            {
-                data.allSliderDataJson.edges.map((item, index) => {
-                    return (
-                        <SwiperSlide key={index}>
-                            <CardItem 
-                                img={item.node.image.childImageSharp.fluid} 
-                                logo={item.node.logo.childImageSharp.fluid}
-                                name={item.node.name}
-                                collection={item.node.collection}
-                                isSlider
-                            />
-                        </SwiperSlide>
-                    )
-                })
-            }
-        </Swiper>
-        <div className={styles.pagination}></div>
-        </div>
-    </div>
-  )
+    )
 }
 
 export default Mainvisual
