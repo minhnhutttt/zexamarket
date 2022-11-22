@@ -1,11 +1,12 @@
 import React from "react";
 import Img from "gatsby-image"
+import { Link } from "gatsby"
 import * as styles from "./Card.module.scss"
 import { FaHeart } from 'react-icons/fa';
 
 const CardItem = (props) => {
     return (
-        <div className={styles.card}>
+        <Link to={`mypage/${props.id}`} className={styles.card}>
             <div className={styles.cardImg}>
                 <Img fluid={props.img} />
             </div>
@@ -33,7 +34,7 @@ const CardItem = (props) => {
                     </>
                 )
             }
-        </div>
+        </Link>
     )
 }
 export default CardItem

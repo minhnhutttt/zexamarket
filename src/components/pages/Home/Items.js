@@ -45,6 +45,7 @@ const Items = () => {
             return (
               <div className={styles.item} key={index}>
                 <CardItem
+                  id={item.node.id}
                   img={item.node.image.childImageSharp.fluid}
                   logo={item.node.logo.childImageSharp.fluid}
                   name={item.node.name}

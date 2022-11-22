@@ -10,11 +10,12 @@ import CardItem from "../Card/CardItem"
 
 const Mainvisual = () => {
     const data = useStaticQuery(graphql`
-        query TripQuery {
-            allSliderDataJson {
+        query MyQuery1 {
+            allTopDataJson(limit: 4) {
             edges {
                 node {
                 id
+                collection
                 name
                 image {
                     childImageSharp {
@@ -24,14 +25,12 @@ const Mainvisual = () => {
                     }
                 }
                 logo {
-                    id
                     childImageSharp {
                     fluid {
                         ...GatsbyImageSharpFluid
                     }
                     }
                 }
-                collection
                 }
             }
             }
@@ -72,10 +71,11 @@ const Mainvisual = () => {
                         }}
                     >
                         {
-                            data.allSliderDataJson.edges.map((item, index) => {
+                            data.allTopDataJson.edges.map((item, index) => {
                                 return (
                                     <SwiperSlide key={index}>
                                         <CardItem
+                                            id={item.node.id}
                                             img={item.node.image.childImageSharp.fluid}
                                             logo={item.node.logo.childImageSharp.fluid}
                                             name={item.node.name}
