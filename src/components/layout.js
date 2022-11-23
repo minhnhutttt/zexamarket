@@ -7,8 +7,8 @@
 
 import * as React from "react"
 
-import Header from "./Header/Header"
-import Footer from "./Footer/Footer"
+import Header from "./Header"
+import Footer from "./Footer"
 import "../styles/styles.scss"
 const Layout = ({ children }) => {
   return (

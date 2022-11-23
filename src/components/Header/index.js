@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import * as styles from "./Header.module.scss"
+import * as styles from "./header.module.scss"
 import { FaSearch } from 'react-icons/fa';
 import { useState } from "react"
 
