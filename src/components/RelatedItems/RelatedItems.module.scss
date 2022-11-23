@@ -1,7 +1,13 @@
 .related {
     padding: 110px 0;
+    @media screen and (max-width: 768px) {
+        padding: 60px 0;
+    }
     &-ttl {
         margin-bottom: 55px;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 30px;
+        }
         p {
             display: flex;
             justify-content: center;
@@ -9,6 +15,9 @@
             font-size: 28px;
             font-weight: bold;
             position: relative;
+            @media screen and (max-width: 768px) {
+                font-size: 20px;
+            }
             span {
                 margin-left: 10px;
             }

@@ -2,28 +2,28 @@ import * as React from "react"
 
 import Layout from "../../components/layout"
 import { graphql, Link } from "gatsby"
-import * as styles from "./Mypage.module.scss"
-import Seo from "../../components/Seo"
+import * as styles from "./inventory.module.scss"
+import Seo from "../../components/seo"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import ButtonLink from "../../components/Button/ButtonLink"
 import { FaListAlt } from 'react-icons/fa';
 import RelatedItems from "../../components/RelatedItems/RelatedItems"
 import Category from "../../components/Category/Category"
 
-const Single = ({data}) => {
-    const {name, logo, image, content, tags} = data.topDataJson;
+const Single = ({ data }) => {
+    const { name, logo, image, content, tags, user } = data.topDataJson;
     const pathImg = getImage(image)
     const pathLogo = getImage(logo)
-    console.log(data)
+    const pathUser = getImage(user.avatar)
     return (
         <Layout>
             <div className={styles.single}>
                 <div className={styles.singleWrap}>
-                    <div className={styles.singleFlex}>
+                    <div className={`${styles.singleFlex} ${styles.isStart}`}>
                         <div className={styles.singleCol}>
                             <div className={styles.singleThumb}>
                                 <GatsbyImage image={pathImg} alt={name} />
-                            </div>    
+                            </div>
                         </div>
                         <div className={styles.singleCol}>
                             <div className={styles.singleArticle}>
@@ -39,8 +39,8 @@ const Single = ({data}) => {
                                         {content}
                                     </p>
                                     <div className={styles.singleArticleTag}>
-                                        {tags.map((tag) => (
-                                            <p>{tag}</p>
+                                        {tags.map((tag, index) => (
+                                            <p key={index}>{tag}</p>
                                         ))}
                                     </div>
                                     <div className={styles.singleArticleBtn}>
@@ -48,15 +48,15 @@ const Single = ({data}) => {
                                     </div>
                                     <div className={styles.singleArticleUser}>
                                         <div className={styles.singleArticleUserAvatar}>
-                                            <StaticImage src="../../images/avatar.png" alt="ZEXAMARKET" />
+                                            <GatsbyImage image={pathUser} alt={user.nickname} />
                                         </div>
                                         <div className={styles.singleArticleUserInfo}>
                                             <p className={styles.singleArticleUserOwner}>所有者</p>
-                                            <p className={styles.singleArticleUserName}>Username１２３４５</p>
+                                            <p className={styles.singleArticleUserName}>{user.nickname}</p>
                                         </div>
                                     </div>
                                 </div>
-                            </div>    
+                            </div>
                         </div>
                     </div>
                     <div className={styles.singleFlex}>
@@ -105,7 +105,8 @@ const Single = ({data}) => {
                             <FaListAlt /><span>NFT取引履歴</span>
                         </div>
                         <div className={styles.singleTableContent}>
-                                <table>
+                            <table>
+                                <tbody>
                                     <tr>
                                         <th>STATUS</th>
                                         <th>商品</th>
@@ -116,46 +117,47 @@ const Single = ({data}) => {
                                     </tr>
                                     <tr>
                                         <td>購入完了</td>
-                                        <td><p className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</p></td>
+                                        <td><div className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</div></td>
                                         <td>30DIV</td>
                                         <td>a-owner</td>
                                         <td>a-owner</td>
-                                        <td className={styles.singleTableContentDate}>2022-10-10<br/>09:39:40</td>
+                                        <td className={styles.singleTableContentDate}>2022-10-10<br />09:39:40</td>
                                     </tr>
                                     <tr>
                                         <td>転送</td>
-                                        <td><p className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</p></td>
+                                        <td><div className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</div></td>
                                         <td>30DIV</td>
                                         <td>a-owner</td>
                                         <td>a-owner</td>
-                                        <td className={styles.singleTableContentDate}>2022-10-10<br/>09:39:40</td>
+                                        <td className={styles.singleTableContentDate}>2022-10-10<br />09:39:40</td>
                                     </tr>
                                     <tr>
                                         <td>販売</td>
-                                        <td><p className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</p></td>
+                                        <td><div className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</div></td>
                                         <td>30DIV</td>
                                         <td>a-owner</td>
                                         <td>a-owner</td>
-                                        <td className={styles.singleTableContentDate}>2022-10-10<br/>09:39:40</td>
+                                        <td className={styles.singleTableContentDate}>2022-10-10<br />09:39:40</td>
                                     </tr>
                                     <tr>
                                         <td>販売</td>
-                                        <td><p className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</p></td>
+                                        <td><div className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</div></td>
                                         <td>30DIV</td>
                                         <td>a-owner</td>
                                         <td>a-owner</td>
-                                        <td className={styles.singleTableContentDate}>2022-10-10<br/>09:39:40</td>
+                                        <td className={styles.singleTableContentDate}>2022-10-10<br />09:39:40</td>
                                     </tr>
                                     <tr>
                                         <td>転送</td>
-                                        <td><p className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</p></td>
+                                        <td><div className={styles.singleTableContentImg}><span><StaticImage src="../../images/nft-01.jpg" alt="Chart" /></span>ウイスキーNFT30年後...</div></td>
                                         <td>30DIV</td>
                                         <td>a-owner</td>
                                         <td>a-owner</td>
-                                        <td className={styles.singleTableContentDate}>2022-10-10<br/>09:39:40</td>
+                                        <td className={styles.singleTableContentDate}>2022-10-10<br />09:39:40</td>
                                     </tr>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <RelatedItems />
@@ -168,22 +170,30 @@ const Single = ({data}) => {
 export const query = graphql`
     query getSingleNFT($id: String) {
         topDataJson(id: {eq: $id}) {
-        id
-        name
-        content
-        tags
-        image {
+            id
+            name
+            content
+            tags
+            image {
             childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+                gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+            }
+            }
+            logo {
+            childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+            }
+            }
+            user {
+            avatar {
+                childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+                }
+            }
+            nickname
             }
         }
-        logo {
-            childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
-            }
-        }
-        }
-    }
+}
 `
 
 export const Head = () => <Seo title="Home" />

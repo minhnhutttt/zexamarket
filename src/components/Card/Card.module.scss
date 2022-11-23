@@ -14,15 +14,32 @@
         overflow: hidden;
     }
     &-logo {
-        width: 68px;
         margin: -40px auto 0;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @media screen and (max-width: 768px) {
-            width: 50px;
             margin-top: -30px;
         }
+        &-base {
+            height: 10px;
+        }
+        img {
+            width: 68px;
+            @media screen and (max-width: 768px) {
+                width: 50px;
+            }
+        }
+    }
+    &-content {
+        min-height: 52px;
+        
     }
     &-name {
-        margin-top: 10px;
+        margin-top: 25px;
         font-size: 18px;
         color: #fff;
         text-align: center;
@@ -59,7 +76,7 @@
         align-items: center;
         position: absolute;
         right: 15px;
-        bottom: 20px;
+        bottom: 15px;
         @media screen and (max-width: 768px) {
             bottom: 15px;
         }
@@ -79,15 +96,38 @@
             }
         }
     }
+    &-user {
+        display: flex;
+        align-items: center;
+        padding-right: 30px;
+        @media screen and (max-width: 768px) {
+            padding-bottom: 5px;
+        }
+        img {
+            width: 32px;
+            @media screen and (max-width: 768px) {
+                width: 24px;
+            }
+        }
+        &-name {
+            font-size: 14px;
+            color: #dbdcdc;
+            margin-left: 10px;
+            @media screen and (max-width: 768px) {
+                font-size: 11px;
+            }
+        }
+    }
 }
 .items {
+    overflow: hidden;
     &-wrap {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         margin: 35px -20px 30px;
         @media screen and (max-width: 768px) {
-            margin-top: 20px;
+            margin: 20px 0 30px;
         }
     }
 }

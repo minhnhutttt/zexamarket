@@ -5,7 +5,7 @@ import Mainvisual from "../components/Mainvisual/Mainvisual"
 import Items from "../components/pages/Home/Items"
 import Category from "../components/Category/Category"
 import Video from "../components/pages/Home/Video"
-import Seo from "../components/Seo"
+import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>

@@ -19,17 +19,13 @@ const Mainvisual = () => {
                 name
                 image {
                     childImageSharp {
-                    fluid {
-                        ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
                     }
                 }
                 logo {
                     childImageSharp {
-                    fluid {
-                        ...GatsbyImageSharpFluid
-                    }
-                    }
+                  gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+                }
                 }
                 }
             }
@@ -76,8 +72,8 @@ const Mainvisual = () => {
                                     <SwiperSlide key={index}>
                                         <CardItem
                                             id={item.node.id}
-                                            img={item.node.image.childImageSharp.fluid}
-                                            logo={item.node.logo.childImageSharp.fluid}
+                                            img={item.node.image.childImageSharp}
+                                            logo={item.node.logo.childImageSharp}
                                             name={item.node.name}
                                             collection={item.node.collection}
                                             isSlider

@@ -4,6 +4,7 @@ import CardItem from "./CardItem"
 
 const CardItems = (props) => {
   return (
+    <div className={styles.items}>
       <div className={styles.itemsWrap}>
         {
           props.data.map((item, index) => {
@@ -11,19 +12,21 @@ const CardItems = (props) => {
               <div className={styles.item} key={index}>
                 <CardItem
                   id={item.node.id}
-                  img={item.node.image.childImageSharp.fluid}
-                  logo={item.node.logo.childImageSharp.fluid}
+                  img={item.node.image.childImageSharp}
+                  logo={item.node.logo?.childImageSharp}
                   name={item.node.name}
                   collection={item.node.collection}
                   price={item.node.price}
                   myFavourite={item.node.myFavourite}
                   favourite={item.node.favourite}
+                  user={item.node.user}
                 />
               </div>
             )
           })
         }
       </div>
+    </div>
   )
 }
 

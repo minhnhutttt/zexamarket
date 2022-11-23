@@ -8,7 +8,7 @@ import CardItems from "../../Card/CardItems";
 const Items = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
-        allTopDataJson {
+        allTopDataJson(limit: 10) {
           edges {
             node {
               id
@@ -19,16 +19,12 @@ const Items = () => {
               price
               image {
                 childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
                 }
               }
               logo {
                 childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
+                    gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
                 }
               }
             }

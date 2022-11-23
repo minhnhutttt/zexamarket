@@ -19,17 +19,13 @@ const RelatedItems = () => {
                 price
                 image {
                     childImageSharp {
-                    fluid {
-                        ...GatsbyImageSharpFluid
-                    }
-                    }
+                  gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+                }
                 }
                 logo {
                     childImageSharp {
-                    fluid {
-                        ...GatsbyImageSharpFluid
-                    }
-                    }
+                  gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+                }
                 }
                 }
             }
