@@ -5,7 +5,6 @@ import * as styles from "./card.module.scss"
 import { FaHeart } from 'react-icons/fa';
 
 const CardItem = (props) => {
-    console.log(props)
     const pathImg = props.img ? getImage(props.img) : null
     const pathLogo = props.logo ? getImage(props.logo) : null
     const pathAvatar = props.user ? getImage(props.user.avatar) : null

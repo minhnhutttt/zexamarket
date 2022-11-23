@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
@@ -6,8 +6,11 @@ import * as styles from "./mypage.module.scss"
 import { StaticImage } from "gatsby-plugin-image"
 import CardItems from "../../components/Card/CardItems"
 import Category from "../../components/Category"
+import * as animated from "../../styles/animated.module.scss"
+import { ObserverContext } from "../../provider/IntersectionObserverProvider";
 
 const Index = ({data}) => {
+    const { toTargets } = useContext(ObserverContext);
     const [currentTab, setCurrentTab] = useState('1');
     const tabs = [
         {
@@ -48,15 +51,15 @@ const Index = ({data}) => {
                     </div>
                     <div className={styles.mypageUserContent}>
                         <p className={styles.mypageUserName}>Username１２３４５</p>
-                        <p className={styles.mypageUserTxt}>
+                        <div className={styles.mypageUserTxt}>
                             <StaticImage src="../../images/ic.png" alt="0xc142" /><span>0xc142...11B0</span>
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.mypageTabs}>
-                    <div className={styles.mypageTabsItem}>
+                    <div ref={toTargets} className={`${styles.mypageTabsItem} ${animated.zoomIn}`}>
                         {tabs.map((tab, i) =>
-                            <button key={i} id={tab.id} disabled={currentTab === `${tab.id}`} className={currentTab === `${tab.id}` && `${styles.isActive}`} onClick={(handleTabClick)}>{tab.tabTitle}</button>
+                            <button key={i} id={tab.id} disabled={currentTab === `${tab.id}`} className={currentTab === tab.id ? `${styles.isActive}` : ''} onClick={(handleTabClick)}>{tab.tabTitle}</button>
                         )}
                     </div>
                     <div className={styles.mypageTabsContent}>

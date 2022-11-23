@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Title from "../../Title"
 import { useStaticQuery, graphql } from "gatsby"
 import * as styles from "./items.module.scss"
 import ButtonLink from "../../Button";
 import CardItems from "../../Card/CardItems";
-
+import { ObserverContext } from "../../../provider/IntersectionObserverProvider";
 const Items = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -32,8 +32,9 @@ const Items = () => {
         }
       }
     `)
+    const { toTargets } = useContext(ObserverContext);
   return (
-    <div className={styles.items}>
+    <div ref={toTargets} className={styles.items}>
       <Title>販売中 NFTs</Title>
       <CardItems data={data.allTopDataJson.edges} />
       <ButtonLink to="#">もっと見る</ButtonLink>

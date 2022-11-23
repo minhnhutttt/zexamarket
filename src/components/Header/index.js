@@ -16,13 +16,13 @@ const Header = () => {
       <div className={styles.headerInner}>
         <ul className={styles.headerMenu}>
           <li>
-            <Link to={'/'}>
+            <Link to={'/mypage'}>
               <StaticImage src="../../images/ic-user.png" alt="ZEXAMARKET" />
               <span>マイページ</span>
             </Link>
           </li>
           <li>
-            <Link to={'/'}>
+            <Link to={'/collection'}>
               <span>マーケットプレイス</span>
             </Link>
           </li>

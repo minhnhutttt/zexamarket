@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useContext } from "react"
 import * as styles from "./mainvisual.module.scss"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
@@ -7,6 +7,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import CardItem from "../Card/CardItem"
+import * as animated from "../../styles/animated.module.scss"
+import { ObserverContext } from "../../provider/IntersectionObserverProvider";
 
 const Mainvisual = () => {
     const data = useStaticQuery(graphql`
@@ -32,9 +34,10 @@ const Mainvisual = () => {
             }
         }
     `)
+    const { toTargets } = useContext(ObserverContext);
     return (
         <div className={styles.mv}>
-            <div className={styles.mvContent}>
+            <div ref={toTargets} className={`${styles.mvContent} ${animated.fadein}`}>
                 <h4 className={styles.mvContentTxt}>
                     過去、現在、未来 <br />
                     時をつむぐ <br />
@@ -45,7 +48,7 @@ const Mainvisual = () => {
                     マーケットプレイス
                 </Link>
             </div>
-            <div className={styles.mvSlider}>
+            <div ref={toTargets} className={`${styles.mvSlider} ${animated.fadein}`}>
                 <div className={styles.mvSliderContent}
                 >
                     <Swiper

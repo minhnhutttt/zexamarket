@@ -1,5 +1,4 @@
-import * as React from "react"
-
+import React, { useContext } from "react"
 import Layout from "../../components/layout"
 import { graphql, Link } from "gatsby"
 import * as styles from "./inventory.module.scss"
@@ -9,8 +8,11 @@ import ButtonLink from "../../components/Button"
 import { FaListAlt } from 'react-icons/fa';
 import RelatedItems from "../../components/RelatedItems"
 import Category from "../../components/Category"
+import * as animated from "../../styles/animated.module.scss"
+import { ObserverContext } from "../../provider/IntersectionObserverProvider";
 
 const Single = ({ data }) => {
+    const { toTargets } = useContext(ObserverContext);
     const { name, logo, image, content, tags, user } = data.topDataJson;
     const pathImg = getImage(image)
     const pathLogo = getImage(logo)
@@ -20,12 +22,12 @@ const Single = ({ data }) => {
             <div className={styles.single}>
                 <div className={styles.singleWrap}>
                     <div className={`${styles.singleFlex} ${styles.isStart}`}>
-                        <div className={styles.singleCol}>
+                        <div ref={toTargets} className={`${styles.singleCol} ${animated.fadein}`}>
                             <div className={styles.singleThumb}>
                                 <GatsbyImage image={pathImg} alt={name} />
                             </div>
                         </div>
-                        <div className={styles.singleCol}>
+                        <div ref={toTargets} className={`${styles.singleCol} ${animated.fadein}`}>
                             <div className={styles.singleArticle}>
                                 <div className={styles.singleArticleLogo}>
                                     <GatsbyImage image={pathLogo} alt={name} />
@@ -60,7 +62,7 @@ const Single = ({ data }) => {
                         </div>
                     </div>
                     <div className={styles.singleFlex}>
-                        <div className={styles.singleCol}>
+                        <div ref={toTargets} className={`${styles.singleCol} ${animated.fadein}`}>
                             <div className={styles.singleBlock}>
                                 <div className={styles.singleHead}>
                                     <FaListAlt /><span>詳細</span>
@@ -89,7 +91,7 @@ const Single = ({ data }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.singleCol}>
+                        <div ref={toTargets} className={`${styles.singleCol} ${animated.fadein}`}>
                             <div className={styles.singleBlock}>
                                 <div className={styles.singleHead}>
                                     <FaListAlt /><span>価格履歴</span>
@@ -100,7 +102,7 @@ const Single = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.singleTable}>
+                    <div ref={toTargets} className={`${styles.singleTable} ${animated.fadein}`}>
                         <div className={styles.singleHead}>
                             <FaListAlt /><span>NFT取引履歴</span>
                         </div>

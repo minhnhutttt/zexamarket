@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react"
 import * as styles from "./card.module.scss"
 import CardItem from "./CardItem"
+import * as animated from "../../styles/animated.module.scss"
+import { ObserverContext } from "../../provider/IntersectionObserverProvider";
 
 const CardItems = (props) => {
+  const { toTargets } = useContext(ObserverContext);
   return (
-    <div className={styles.items}>
+    <div ref={toTargets} className={`${styles.items} ${animated.fadein}`}>
       <div className={styles.itemsWrap}>
         {
           props.data.map((item, index) => {
