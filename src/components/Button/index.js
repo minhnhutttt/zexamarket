@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./Button.module.scss"
+import * as styles from "./button.module.scss"
 import { Link } from "gatsby"
 const ButtonLink = ({ href = "#", children}) => {
     return (

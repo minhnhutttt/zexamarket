@@ -1,9 +1,9 @@
 import * as React from "react"
 
 import Layout from "../components/layout"
-import Mainvisual from "../components/Mainvisual/Mainvisual"
+import Mainvisual from "../components/Mainvisual"
 import Items from "../components/pages/Home/Items"
-import Category from "../components/Category/Category"
+import Category from "../components/Category"
 import Video from "../components/pages/Home/Video"
 import Seo from "../components/seo"
 

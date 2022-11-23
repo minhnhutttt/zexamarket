@@ -5,7 +5,7 @@ import Seo from "../../components/seo"
 import * as styles from "./mypage.module.scss"
 import { StaticImage } from "gatsby-plugin-image"
 import CardItems from "../../components/Card/CardItems"
-import Category from "../../components/Category/Category"
+import Category from "../../components/Category"
 
 const Index = ({data}) => {
     const [currentTab, setCurrentTab] = useState('1');

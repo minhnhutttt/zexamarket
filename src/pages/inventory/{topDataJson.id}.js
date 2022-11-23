@@ -5,10 +5,10 @@ import { graphql, Link } from "gatsby"
 import * as styles from "./inventory.module.scss"
 import Seo from "../../components/seo"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
-import ButtonLink from "../../components/Button/ButtonLink"
+import ButtonLink from "../../components/Button"
 import { FaListAlt } from 'react-icons/fa';
-import RelatedItems from "../../components/RelatedItems/RelatedItems"
-import Category from "../../components/Category/Category"
+import RelatedItems from "../../components/RelatedItems"
+import Category from "../../components/Category"
 
 const Single = ({ data }) => {
     const { name, logo, image, content, tags, user } = data.topDataJson;

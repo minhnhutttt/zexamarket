@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-import * as styles from "./Card.module.scss"
+import * as styles from "./card.module.scss"
 import { FaHeart } from 'react-icons/fa';
 
 const CardItem = (props) => {

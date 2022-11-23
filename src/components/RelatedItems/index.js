@@ -1,9 +1,9 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby"
 import CardItems from "../Card/CardItems";
-import * as styles from "./RelatedItems.module.scss"
+import * as styles from "./relatedItems.module.scss"
 import { FaImages } from 'react-icons/fa';
-import ButtonLink from "../Button/ButtonLink";
+import ButtonLink from "../Button";
 
 const RelatedItems = () => {
     const data = useStaticQuery(graphql`

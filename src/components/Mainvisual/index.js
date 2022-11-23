@@ -1,5 +1,5 @@
 import * as React from "react"
-import * as styles from "./Mainvisual.module.scss"
+import * as styles from "./mainvisual.module.scss"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react";

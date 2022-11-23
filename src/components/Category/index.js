@@ -1,9 +1,9 @@
 import React from "react";
-import * as styles from "./Category.module.scss"
+import * as styles from "./category.module.scss"
 import { useStaticQuery, graphql } from "gatsby"
-import Title from "../Title/Title"
+import Title from "../Title"
 import Img from "gatsby-image"
-import ButtonLink from "../Button/ButtonLink";
+import ButtonLink from "../Button";
 const Category = () => {
     const data = useStaticQuery(graphql`
         query MyQuery2 {

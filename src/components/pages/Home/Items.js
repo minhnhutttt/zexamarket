@@ -1,8 +1,8 @@
 import React from "react";
-import Title from "../../Title/Title"
+import Title from "../../Title"
 import { useStaticQuery, graphql } from "gatsby"
-import * as styles from "./Items.module.scss"
-import ButtonLink from "../../Button/ButtonLink";
+import * as styles from "./items.module.scss"
+import ButtonLink from "../../Button";
 import CardItems from "../../Card/CardItems";
 
 const Items = () => {

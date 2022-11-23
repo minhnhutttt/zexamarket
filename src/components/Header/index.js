@@ -53,22 +53,22 @@ const Header = () => {
               </div>
             }
           </div>
-          <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+          <button type="button" className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
             <div className={styles.hamburgerLines} >
               <span className={styles.line}></span>
               <span className={styles.line}></span>
               <span className={styles.line}></span>
             </div>
-          </div>
+          </button>
           {isOpen &&
             <div className={styles.headerMenuSp}>
-              <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+              <button type="button" className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
                 <div className={`${styles.hamburgerLines} ${styles.isActive}`} >
                   <span className={styles.line}></span>
                   <span className={styles.line}></span>
                   <span className={styles.line}></span>
                 </div>
-              </div>
+              </button>
               <ul>
                 <li>
                   <Link to={'/'}>
