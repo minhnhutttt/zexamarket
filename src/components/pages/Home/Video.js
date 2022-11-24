@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import * as styles from "./video.module.scss"
 import * as animated from "../../../styles/animated.module.scss"
 import { ObserverContext } from "../../../provider/IntersectionObserverProvider";
+import { handleObserver } from '../../../utils/IntersectionObserver'
 const Video = () => {
-    const { toTargets } = useContext(ObserverContext);
+    const { toTargets, targets } = useContext(ObserverContext);
+
+    useEffect(() => {
+        handleObserver(targets)
+    }, [targets])
     return (
         <div className={styles.video}>
             <div className={styles.videoWrap}>

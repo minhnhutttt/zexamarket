@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import * as styles from "./card.module.scss"
+import * as animated from "../../styles/animated.module.scss"
 import { FaHeart } from 'react-icons/fa';
-
+import { ObserverContext } from "../../provider/IntersectionObserverProvider";
+import { handleObserver } from '../../utils/IntersectionObserver'
 const CardItem = (props) => {
+    const { toTargets, targets } = useContext(ObserverContext);
+
+    useEffect(() => {
+        handleObserver(targets)
+    }, [targets])
     const pathImg = props.img ? getImage(props.img) : null
     const pathLogo = props.logo ? getImage(props.logo) : null
     const pathAvatar = props.user ? getImage(props.user.avatar) : null
     return (
-        <Link to={`/inventory/${props.id}`} className={styles.card}>
+        <Link ref={toTargets} to={`/inventory/${props.id}`} className={`${styles.card} ${animated.fadein}`}>
             <div className={styles.cardImg}>
                 <GatsbyImage image={pathImg} alt={props.name} />
             </div>

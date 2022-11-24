@@ -33,7 +33,7 @@ const Index = ({ data }) => {
     return (
         <Layout>
             <div className={styles.collection}>
-                <div className={styles.collectionTitle}>
+                <div>
                     <StaticImage src="../../images/collection-title.png" alt="ZEXAMARKET" />
                 </div>
                 <div className={styles.collectionBrand}>

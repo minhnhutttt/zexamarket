@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react"
+import React, { useEffect, useState, useContext } from "react";
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
@@ -8,34 +8,35 @@ import CardItems from "../../components/Card/CardItems"
 import Category from "../../components/Category"
 import * as animated from "../../styles/animated.module.scss"
 import { ObserverContext } from "../../provider/IntersectionObserverProvider";
+import { handleObserver } from '../../utils/IntersectionObserver'
 
 const Index = ({data}) => {
-    const { toTargets } = useContext(ObserverContext);
+    const { toTargets, targets } = useContext(ObserverContext);
+
+    useEffect(() => {
+        handleObserver(targets)
+    }, [targets])
     const [currentTab, setCurrentTab] = useState('1');
     const tabs = [
         {
             id: 1,
             tabTitle: '購入済NFT',
             title: '購入済NFT',
-            content: 'Las tabs se generan automáticamente a partir de un array de objetos, el cual tiene las propiedades: id, tabTitle, title y content.'
         },
         {
             id: 2,
             tabTitle: '出品中NFT',
             title: '出品中NFT',
-            content: 'Contenido de tab 2.'
         },
         {
             id: 3,
             tabTitle: 'お気に入り',
             title: 'お気に入り',
-            content: 'Contenido de tab 3.'
         },
         {
             id: 4,
             tabTitle: '取引履歴',
             title: '取引履歴',
-            content: 'Contenido de tab 4.'
         }
     ];
     const handleTabClick = (e) => {
@@ -59,7 +60,7 @@ const Index = ({data}) => {
                 <div className={styles.mypageTabs}>
                     <div ref={toTargets} className={`${styles.mypageTabsItem} ${animated.zoomIn}`}>
                         {tabs.map((tab, i) =>
-                            <button key={i} id={tab.id} disabled={currentTab === `${tab.id}`} className={currentTab === tab.id ? `${styles.isActive}` : ''} onClick={(handleTabClick)}>{tab.tabTitle}</button>
+                            <button key={i} id={tab.id} disabled={currentTab === `${tab.id}`} className={currentTab === `${tab.id}` ? `${styles.isActive}` : ''} onClick={(handleTabClick)}>{tab.tabTitle}</button>
                         )}
                     </div>
                     <div className={styles.mypageTabsContent}>

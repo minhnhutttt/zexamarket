@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import * as styles from "./category.module.scss"
 import * as animated from "../../styles/animated.module.scss"
 import { useStaticQuery, graphql } from "gatsby"
@@ -6,6 +6,7 @@ import Title from "../Title"
 import Img from "gatsby-image"
 import ButtonLink from "../Button";
 import { ObserverContext } from "../../provider/IntersectionObserverProvider";
+import { handleObserver } from '../../utils/IntersectionObserver'
 const Category = () => {
     const data = useStaticQuery(graphql`
         query MyQuery2 {
@@ -26,7 +27,11 @@ const Category = () => {
             }
         }
     `)
-    const { toTargets } = useContext(ObserverContext);
+    const { toTargets, targets } = useContext(ObserverContext);
+
+    useEffect(() => {
+        handleObserver(targets)
+    }, [targets])
     return (
         <div className={styles.category}>
             <Title>コレクション</Title>
@@ -36,7 +41,7 @@ const Category = () => {
                 return (
                 <div  ref={toTargets} className={`${styles.categoryItem} ${animated.fadein}`} key={index}>
                     <div className={styles.categoryItemInner}>
-                        <div className={styles.categoryItemImg}>
+                        <div>
                             <Img fluid={item.node.image.childImageSharp.fluid} />
                         </div>
                         <p className={styles.categoryItemName}>

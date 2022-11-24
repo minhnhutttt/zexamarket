@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useEffect, useContext } from "react";
 import Layout from "../../components/layout"
 import { graphql, Link } from "gatsby"
 import * as styles from "./inventory.module.scss"
@@ -10,9 +10,13 @@ import RelatedItems from "../../components/RelatedItems"
 import Category from "../../components/Category"
 import * as animated from "../../styles/animated.module.scss"
 import { ObserverContext } from "../../provider/IntersectionObserverProvider";
-
+import { handleObserver } from '../../utils/IntersectionObserver'
 const Single = ({ data }) => {
-    const { toTargets } = useContext(ObserverContext);
+    const { toTargets, targets } = useContext(ObserverContext);
+
+    useEffect(() => {
+        handleObserver(targets)
+    }, [targets])
     const { name, logo, image, content, tags, user } = data.topDataJson;
     const pathImg = getImage(image)
     const pathLogo = getImage(logo)
