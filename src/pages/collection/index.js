@@ -30,67 +30,74 @@ const Index = ({ data }) => {
     const isMore = products.length < allProducts.length
     setHasMore(isMore)
   }, [products]) //eslint-disable-line
-    return (
-        <Layout>
-            <div className={styles.collection}>
-                <div>
-                    <StaticImage src="../../images/collection-title.png" alt="ZEXAMARKET" />
-                </div>
-                <div className={styles.collectionBrand}>
-                    <div className={styles.collectionBrandLogo}>
-                        <StaticImage src="../../images/logo-01.png" alt="刻良NFT" />
-                    </div>
-                    <div className={styles.collectionBrandContent}>
-                        <p className={styles.collectionBrandName}>刻良NFT</p>
-                        <p className={styles.collectionBrandTxt}>
-                            刻良ウイスキーが入った樽は計5樽あり、その中身は合計2,000本の700ml瓶にボトリングされます。<br />
-                            ボトリングされる順にシリアル番号化する事で、固有性を持つ「刻良NFT」が発行されます。<br />
-                            30年後に樽からボトリングされた刻良ウイスキー現物を「刻良NFTオーナー」に発送します。
-                        </p>
-                    </div>
-                </div>
-            <div className={styles.collectionCount}>
-              アイテム:{data.allTopDataJson.totalCount}
-            </div>
-          <CardItems data={products} />
-          {hasMore && (
-            <div className={styles.collectionBtn}>
-              <button onClick={handleLoadMore}><StaticImage src="../../images/more.png" alt="more" /></button>
-            </div>
-          )}
-            </div>
-        </Layout>
-    )
+  return (
+    <Layout>
+      <div className={styles.collection}>
+        <div>
+          <StaticImage
+            src="../../images/collection-title.png"
+            alt="ZEXAMARKET"
+          />
+        </div>
+        <div className={styles.collectionBrand}>
+          <div className={styles.collectionBrandLogo}>
+            <StaticImage src="../../images/logo-01.png" alt="刻良NFT" />
+          </div>
+          <div className={styles.collectionBrandContent}>
+            <p className={styles.collectionBrandName}>刻良NFT</p>
+            <p className={styles.collectionBrandTxt}>
+              刻良ウイスキーが入った樽は計5樽あり、その中身は合計2,000本の700ml瓶にボトリングされます。
+              <br />
+              ボトリングされる順にシリアル番号化する事で、固有性を持つ「刻良NFT」が発行されます。
+              <br />
+              30年後に樽からボトリングされた刻良ウイスキー現物を「刻良NFTオーナー」に発送します。
+            </p>
+          </div>
+        </div>
+        <div className={styles.collectionCount}>
+          アイテム:{data.allTopDataJson.totalCount}
+        </div>
+        <CardItems data={products} />
+        {hasMore && (
+          <div className={styles.collectionBtn}>
+            <button onClick={handleLoadMore}>
+              <StaticImage src="../../images/more.png" alt="more" />
+            </button>
+          </div>
+        )}
+      </div>
+    </Layout>
+  )
 }
 
 export const query = graphql`
-    query getCollection {
-        allTopDataJson {
-          edges {
-            node {
-              id
-              favourite
-              myFavourite
-              name
-              price
-              image {
-                childImageSharp {
-                  gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
-                }
-              }
-              user {
-            avatar {
-                childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
-                }
-            }
-            nickname
-            }
+  query getCollection {
+    allTopDataJson {
+      edges {
+        node {
+          id
+          favourite
+          myFavourite
+          name
+          price
+          image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
             }
           }
-          totalCount
+          user {
+            avatar {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+              }
+            }
+            nickname
+          }
         }
       }
+      totalCount
+    }
+  }
 `
 export const Head = () => <Seo title="Collection" />
 

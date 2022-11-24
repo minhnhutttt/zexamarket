@@ -1,34 +1,34 @@
 [
-    {
-        "name": "Category1",
-        "image": "../images/category-01.png"
-    },
-    {
-        "name": "Category2",
-        "image": "../images/category-02.png"
-    },
-    {
-        "name": "Category3",
-        "image": "../images/category-03.png"
-    },
-    {
-        "name": "Category4",
-        "image": "../images/category-04.png"
-    },
-    {
-        "name": "Category5",
-        "image": "../images/category-05.png"
-    },
-    {
-        "name": "Category6",
-        "image": "../images/category-06.png"
-    },
-    {
-        "name": "Category7",
-        "image": "../images/category-07.png"
-    },
-    {
-        "name": "Category8",
-        "image": "../images/category-08.png"
-    }
+  {
+    "name": "Category1",
+    "image": "../images/category-01.png"
+  },
+  {
+    "name": "Category2",
+    "image": "../images/category-02.png"
+  },
+  {
+    "name": "Category3",
+    "image": "../images/category-03.png"
+  },
+  {
+    "name": "Category4",
+    "image": "../images/category-04.png"
+  },
+  {
+    "name": "Category5",
+    "image": "../images/category-05.png"
+  },
+  {
+    "name": "Category6",
+    "image": "../images/category-06.png"
+  },
+  {
+    "name": "Category7",
+    "image": "../images/category-07.png"
+  },
+  {
+    "name": "Category8",
+    "image": "../images/category-08.png"
+  }
 ]

@@ -9,10 +9,10 @@ import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-      <Mainvisual />
-      <Items />
-      <Category />
-      <Video />
+    <Mainvisual />
+    <Items />
+    <Category />
+    <Video />
   </Layout>
 )
 

@@ -9,5 +9,5 @@ import React from "react"
 import { IntersectionObserverProvider } from "./src/provider/IntersectionObserverProvider"
 
 export const wrapRootElement = ({ element }) => (
-    <IntersectionObserverProvider>{element}</IntersectionObserverProvider>
+  <IntersectionObserverProvider>{element}</IntersectionObserverProvider>
 )

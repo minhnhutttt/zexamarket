@@ -2,68 +2,89 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import * as styles from "./header.module.scss"
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch } from "react-icons/fa"
 import { useState } from "react"
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   return (
     <header className={styles.header}>
-      <Link to={'/'} className={styles.headerLogo}>
+      <Link to={"/"} className={styles.headerLogo}>
         <StaticImage src="../../images/logo.png" alt="ZEXAMARKET" />
       </Link>
       <div className={styles.headerInner}>
         <ul className={styles.headerMenu}>
           <li>
-            <Link to={'/mypage'}>
+            <Link to={"/mypage"}>
               <StaticImage src="../../images/ic-user.png" alt="ZEXAMARKET" />
               <span>マイページ</span>
             </Link>
           </li>
           <li>
-            <Link to={'/collection'}>
+            <Link to={"/collection"}>
               <span>マーケットプレイス</span>
             </Link>
           </li>
           <li>
-            <Link to={'/'}>
+            <Link to={"/"}>
               <span>ストア</span>
             </Link>
           </li>
           <li>
-            <Link to={'/'}>
+            <Link to={"/"}>
               <span>ゼクサマーケットとは？</span>
             </Link>
           </li>
         </ul>
         <div className={styles.headerSearch}>
-          <span className={styles.headerSearchIcon}><FaSearch /></span>
-          <input type="text" placeholder="商品名、コレクション名、ユーザー名で探す。" />
+          <span className={styles.headerSearchIcon}>
+            <FaSearch />
+          </span>
+          <input
+            type="text"
+            placeholder="商品名、コレクション名、ユーザー名で探す。"
+          />
         </div>
         <div className={styles.header__toggle}>
           <div className={styles.searchSp}>
-            <button type="button" onClick={() => setIsSearchOpen(!isSearchOpen)}>
+            <button
+              type="button"
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+            >
               <FaSearch />
             </button>
-            {isSearchOpen &&
+            {isSearchOpen && (
               <div className={styles.headerSearch}>
-                <span className={styles.headerSearchIcon}><FaSearch /></span>
-                <input type="text" placeholder="商品名、コレクション名、ユーザー名で探す。" />
+                <span className={styles.headerSearchIcon}>
+                  <FaSearch />
+                </span>
+                <input
+                  type="text"
+                  placeholder="商品名、コレクション名、ユーザー名で探す。"
+                />
               </div>
-            }
+            )}
           </div>
-          <button type="button" className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
-            <div className={styles.hamburgerLines} >
+          <button
+            type="button"
+            className={styles.hamburger}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <div className={styles.hamburgerLines}>
               <span className={styles.line}></span>
               <span className={styles.line}></span>
               <span className={styles.line}></span>
             </div>
           </button>
-          {isOpen &&
+          {isOpen && (
             <div className={styles.headerMenuSp}>
-              <button type="button" className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
-                <div className={`${styles.hamburgerLines} ${styles.isActive}`} >
+              <button
+                type="button"
+                className={styles.hamburger}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <div className={`${styles.hamburgerLines} ${styles.isActive}`}>
                   <span className={styles.line}></span>
                   <span className={styles.line}></span>
                   <span className={styles.line}></span>
@@ -71,29 +92,32 @@ const Header = () => {
               </button>
               <ul>
                 <li>
-                  <Link to={'/'}>
-                    <StaticImage src="../../images/ic-user.png" alt="ZEXAMARKET" />
+                  <Link to={"/"}>
+                    <StaticImage
+                      src="../../images/ic-user.png"
+                      alt="ZEXAMARKET"
+                    />
                     <span>マイページ</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to={'/'}>
+                  <Link to={"/"}>
                     <span>マーケットプレイス</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to={'/'}>
+                  <Link to={"/"}>
                     <span>ストア</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to={'/'}>
+                  <Link to={"/"}>
                     <span>ゼクサマーケットとは？</span>
                   </Link>
                 </li>
               </ul>
             </div>
-          }
+          )}
         </div>
       </div>
     </header>
