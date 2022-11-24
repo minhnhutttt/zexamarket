@@ -16,6 +16,7 @@
         }
     }
     &-item {
+        display: block;
         padding: 0 12px;
         width: 100%;
         max-width: 384px;
@@ -41,6 +42,7 @@
             font-weight: bold;
             font-family: 'Roboto', sans-serif;
             padding: 28px 20px;
+            color: #000;
             @media screen and (max-width: 768px) {
                 font-size: 14px;
                 padding: 15px;

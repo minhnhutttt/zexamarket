@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react"
 import * as styles from "./category.module.scss"
 import * as animated from "../../styles/animated.module.scss"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import Title from "../Title"
 import Img from "gatsby-image"
 import ButtonLink from "../Button"
@@ -38,7 +38,8 @@ const Category = () => {
       <div className={styles.categoryWrap}>
         {data.allCatDataJson.edges.map((item, index) => {
           return (
-            <div
+            <Link
+              to="#"
               ref={toTargets}
               className={`${styles.categoryItem} ${animated.fadein}`}
               key={index}
@@ -49,7 +50,7 @@ const Category = () => {
                 </div>
                 <p className={styles.categoryItemName}>{item.node.name}</p>
               </div>
-            </div>
+              </Link>
           )
         })}
       </div>
