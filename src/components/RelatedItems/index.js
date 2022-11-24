@@ -49,7 +49,7 @@ const RelatedItems = () => {
         </p>
       </h4>
       <CardItems data={data.allTopDataJson.edges} />
-      <ButtonLink to="#">もっと見る</ButtonLink>
+      <ButtonLink href="#">もっと見る</ButtonLink>
     </div>
   )
 }

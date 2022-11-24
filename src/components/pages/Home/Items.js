@@ -42,7 +42,7 @@ const Items = () => {
     <div ref={toTargets} className={styles.items}>
       <Title>販売中 NFTs</Title>
       <CardItems data={data.allTopDataJson.edges} />
-      <ButtonLink to="#">もっと見る</ButtonLink>
+      <ButtonLink href="/collection">もっと見る</ButtonLink>
     </div>
   )
 }

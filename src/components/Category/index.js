@@ -53,7 +53,7 @@ const Category = () => {
           )
         })}
       </div>
-      <ButtonLink to="#">もっと見る</ButtonLink>
+      <ButtonLink href="#">もっと見る</ButtonLink>
     </div>
   )
 }

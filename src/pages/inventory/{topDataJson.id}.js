@@ -52,7 +52,7 @@ const Single = ({ data }) => {
                     ))}
                   </div>
                   <div className={styles.singleArticleBtn}>
-                    <ButtonLink to="/">出品する</ButtonLink>
+                    <ButtonLink href="/">出品する</ButtonLink>
                   </div>
                   <div className={styles.singleArticleUser}>
                     <div className={styles.singleArticleUserAvatar}>
