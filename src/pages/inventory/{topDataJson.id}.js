@@ -35,32 +35,34 @@ const Single = ({ data }) => {
         text: ''
       },
       xAxis: [{
-        tickInterval: 7 * 24 * 3600 * 1000,
-        type: 'logarithmic',
+        labels: {
+          format: "{value:%b %e}"
+        },
+        type: "datetime",
+        min: 1658504333000 // 2019-10-01T00.00.00.000Z
       }],
-      yAxis: [{ // Primary yAxis
+      yAxis: [{
         labels: {
           style: {
             color: Highcharts.getOptions().colors[1]
           }
         },
-        title: {
-          text: 'Average <br />price (ETH)',
-
-          style: {
-            color: Highcharts.getOptions().colors[1]
-          }
-        }
-      }, { // Secondary yAxis
         title: {
           text: 'Volume <br />(ETH)',
           style: {
             color: Highcharts.getOptions().colors[1]
           }
+        }
+      }, { 
+        title: {
+          text: 'Average <br />price (ETH)',
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
         },
         labels: {
           style: {
-            color: Highcharts.getOptions().colors[0]
+            color: Highcharts.getOptions().colors[1]
           }
         },
         opposite: true
@@ -71,26 +73,36 @@ const Single = ({ data }) => {
       legend: {
         enabled: false
       },
-      plotOptions: {
-        spline: {
-          lineWidth: 2,
-          color: '#3CB0BE',
-          marker: {
-            enabled: false
-          },
-        }
-      },
       series: [{
-        name: 'Precipitation',
+        name: 'Volume',
         type: 'column',
         yAxis: 1,
         color: '#E6E9F1',
-        data: [0.2, 0.3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0.5],
+        data: [[1661182733000, 0.2],
+        [1663861133000, 0.3],
+        [1669131533000, 0.5]],
+        tooltip: {
+          valueSuffix: ' ETH',
+          formatter: function () {
+            console.log(this)
+          }
+        }
       }, {
-        name: 'Temperature',
-        type: 'spline',
-        data: [0.2, 0.3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0.5],
-      }]
+        name: 'Average',
+        marker: {
+          enabled: false
+        },
+        data: [ 
+          [1661182733000, 0.2],
+          [1663861133000, 0.3],
+          [1669131533000, 0.5]],
+      }],
+      exporting: {
+        enabled: false
+      },
+      credits: {
+        enabled: false
+    },
     });
   }, [])
 
@@ -187,7 +199,7 @@ const Single = ({ data }) => {
                   <span>価格履歴</span>
                 </div>
                 <div className={styles.singleChart}>
-                  <div id="container" style={{height: 145 + 'px'}}></div>
+                  <div id="container" style={{height: 145 + 'px', width: 100 + '%'}}></div>
                 </div>
               </div>
             </div>
