@@ -48,14 +48,14 @@ const Single = ({ data }) => {
           }
         },
         title: {
-          text: 'Volume <br />(ETH)',
+          text: '<b>Volume <br />(ETH)</b>',
           style: {
             color: Highcharts.getOptions().colors[1]
           }
         }
-      }, { 
+      }, {
         title: {
-          text: 'Average <br />price (ETH)',
+          text: '<b>Average <br />price (ETH)</b>',
           style: {
             color: Highcharts.getOptions().colors[1]
           }
@@ -73,6 +73,18 @@ const Single = ({ data }) => {
       legend: {
         enabled: false
       },
+      tooltip: {
+        useHTML: true,
+        formatter: function () {
+          return '<table><tr><td style="text-align: center; font-weight: bold">' + this.y + ' ETH</td></tr><tr><td style="text-align: center;">Avg price: ' + this.y + ' ETH</td></tr><tr><td style="text-align: center;">' +
+            Highcharts.dateFormat('%b %e at %H:%m %a',
+              new Date(this.x))
+            + '</td></tr></table>'
+        },
+        style: {
+          textAlign: 'center'
+        }
+      },
       series: [{
         name: 'Volume',
         type: 'column',
@@ -81,18 +93,12 @@ const Single = ({ data }) => {
         data: [[1661182733000, 0.2],
         [1663861133000, 0.3],
         [1669131533000, 0.5]],
-        tooltip: {
-          valueSuffix: ' ETH',
-          formatter: function () {
-            console.log(this)
-          }
-        }
       }, {
         name: 'Average',
         marker: {
           enabled: false
         },
-        data: [ 
+        data: [
           [1661182733000, 0.2],
           [1663861133000, 0.3],
           [1669131533000, 0.5]],
@@ -102,7 +108,7 @@ const Single = ({ data }) => {
       },
       credits: {
         enabled: false
-    },
+      },
     });
   }, [])
 
@@ -199,12 +205,11 @@ const Single = ({ data }) => {
                   <span>価格履歴</span>
                 </div>
                 <div className={styles.singleChart}>
-                  <div id="container" style={{height: 145 + 'px', width: 100 + '%'}}></div>
+                  <div id="container" className={styles.singleChartMain}></div>
                 </div>
               </div>
             </div>
           </div>
-          <StaticImage src="../../images/chart.png" alt="Chart" />
 
           <div
             ref={toTargets}
