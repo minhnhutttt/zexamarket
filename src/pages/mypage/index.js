@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import * as styles from "./mypage.module.scss"
@@ -83,15 +83,107 @@ const Index = ({ data }) => {
             ))}
           </div>
           <div className={styles.mypageTabsContent}>
-            {tabs.map((tab, i) => (
-              <div key={i}>
-                {currentTab === `${tab.id}` && (
-                  <div>
-                    <CardItems data={data.allTopDataJson.edges} />
+            <div>
+              {currentTab === '1' && (
+                <div>
+                  <CardItems data={data.allTopDataJson.edges} />
+                </div>
+              )}
+              {currentTab === '2' && (
+                <div>
+                  <CardItems data={data.allTopDataJson.edges} />
+                </div>
+              )}
+              {currentTab === '3' && (
+                <div>
+                  <CardItems data={data.allTopDataJson.edges} />
+                </div>
+              )}
+              {currentTab === '4' && (
+                <div className={styles.mypageTable}>
+                  <div className={styles.mypageTableContent}>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>日時</th>
+                          <th>商品名</th>
+                          <th>購入価格</th>
+                          <th>入庫</th>
+                          <th>出庫</th>
+                          <th>ステータス</th>
+                        </tr>
+                        <tr>
+                          <td className={styles.mypageTableContentDate}>
+                            2022-10-10
+                            <br />
+                            09:39:40
+                          </td>
+                          <td>
+                            <div className={styles.mypageTableContentImg}>
+                              <span>
+                                <StaticImage
+                                  src="../../images/nft-02.jpg"
+                                  alt="Chart"
+                                />
+                              </span>
+                              ウイスキーNFT30年後...
+                            </div>
+                          </td>
+                          <td>3,500円</td>
+                          <td><Link to="/">uname2022</Link></td>
+                          <td><Link to="/">gokuu887</Link></td>
+                          <td><Link to="/">購入完了</Link></td>
+                        </tr>
+                        <tr>
+                          <td className={styles.mypageTableContentDate}>
+                            2022-10-10
+                            <br />
+                            09:39:40
+                          </td>
+                          <td>
+                            <div className={styles.mypageTableContentImg}>
+                              <span>
+                                <StaticImage
+                                  src="../../images/nft-02.jpg"
+                                  alt="Chart"
+                                />
+                              </span>
+                              ウイスキーNFT30年後...
+                            </div>
+                          </td>
+                          <td>3,500円</td>
+                          <td><Link to="/">uname2022</Link></td>
+                          <td><Link to="/">gokuu887</Link></td>
+                          <td><Link to="/">購入完了</Link></td>
+                        </tr>
+                        <tr>
+                          <td className={styles.mypageTableContentDate}>
+                            2022-10-10
+                            <br />
+                            09:39:40
+                          </td>
+                          <td>
+                            <div className={styles.mypageTableContentImg}>
+                              <span>
+                                <StaticImage
+                                  src="../../images/nft-02.jpg"
+                                  alt="Chart"
+                                />
+                              </span>
+                              ウイスキーNFT30年後...
+                            </div>
+                          </td>
+                          <td>3,500円</td>
+                          <td><Link to="/">uname2022</Link></td>
+                          <td><Link to="/">gokuu887</Link></td>
+                          <td><Link to="/">購入完了</Link></td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <Category />

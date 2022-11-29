@@ -67,9 +67,6 @@ const Single = ({ data }) => {
         },
         opposite: true
       }],
-      tooltip: {
-        shared: true
-      },
       legend: {
         enabled: false
       },
@@ -83,7 +80,8 @@ const Single = ({ data }) => {
         },
         style: {
           textAlign: 'center'
-        }
+        },
+        shared: true
       },
       series: [{
         name: 'Volume',
