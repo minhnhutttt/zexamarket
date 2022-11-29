@@ -11,6 +11,10 @@ import Category from "../../components/Category"
 import * as animated from "../../styles/animated.module.scss"
 import { ObserverContext } from "../../provider/IntersectionObserverProvider"
 import { handleObserver } from "../../utils/IntersectionObserver"
+import Highcharts from 'highcharts';
+import Exporting from 'highcharts/modules/exporting';
+Exporting(Highcharts);
+
 const Single = ({ data }) => {
   const { toTargets, targets } = useContext(ObserverContext)
 
@@ -21,9 +25,79 @@ const Single = ({ data }) => {
   const pathImg = getImage(image)
   const pathLogo = getImage(logo)
   const pathUser = getImage(user.avatar)
+
+  useEffect(() => {
+    Highcharts.chart('container', {
+      chart: {
+        zoomType: 'xy'
+      },
+      title: {
+        text: ''
+      },
+      xAxis: [{
+        tickInterval: 7 * 24 * 3600 * 1000,
+        type: 'logarithmic',
+      }],
+      yAxis: [{ // Primary yAxis
+        labels: {
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
+        },
+        title: {
+          text: 'Average <br />price (ETH)',
+
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
+        }
+      }, { // Secondary yAxis
+        title: {
+          text: 'Volume <br />(ETH)',
+          style: {
+            color: Highcharts.getOptions().colors[1]
+          }
+        },
+        labels: {
+          style: {
+            color: Highcharts.getOptions().colors[0]
+          }
+        },
+        opposite: true
+      }],
+      tooltip: {
+        shared: true
+      },
+      legend: {
+        enabled: false
+      },
+      plotOptions: {
+        spline: {
+          lineWidth: 2,
+          color: '#3CB0BE',
+          marker: {
+            enabled: false
+          },
+        }
+      },
+      series: [{
+        name: 'Precipitation',
+        type: 'column',
+        yAxis: 1,
+        color: '#E6E9F1',
+        data: [0.2, 0.3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0.5],
+      }, {
+        name: 'Temperature',
+        type: 'spline',
+        data: [0.2, 0.3, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0.5],
+      }]
+    });
+  }, [])
+
   return (
     <Layout>
       <div className={styles.single}>
+
         <div className={styles.singleWrap}>
           <div className={`${styles.singleFlex} ${styles.isStart}`}>
             <div
@@ -113,11 +187,13 @@ const Single = ({ data }) => {
                   <span>価格履歴</span>
                 </div>
                 <div className={styles.singleChart}>
-                  <StaticImage src="../../images/chart.png" alt="Chart" />
+                  <div id="container" style={{height: 145 + 'px'}}></div>
                 </div>
               </div>
             </div>
           </div>
+          <StaticImage src="../../images/chart.png" alt="Chart" />
+
           <div
             ref={toTargets}
             className={`${styles.singleTable} ${animated.fadein}`}
