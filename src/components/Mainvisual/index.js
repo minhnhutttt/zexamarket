@@ -18,7 +18,6 @@ const Mainvisual = () => {
         edges {
           node {
             id
-            collection
             name
             image {
               childImageSharp {
@@ -81,7 +80,6 @@ const Mainvisual = () => {
                     img={item.node.image.childImageSharp}
                     logo={item.node.logo.childImageSharp}
                     name={item.node.name}
-                    collection={item.node.collection}
                     isSlider
                   />
                 </SwiperSlide>

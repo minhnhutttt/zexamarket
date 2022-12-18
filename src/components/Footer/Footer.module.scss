@@ -1,53 +1,77 @@
 .footer {
     background-color: #0e0e0e;
-    padding: 140px 20px;
+    padding: 125px 20px;
     @media screen and (max-width: 768px) {
         padding: 50px 20px;
     }
     &-wrap {
         width: 100%;
-        max-width: 1510px;
-        margin: 0 auto;
-        padding-left: 9%;
+        max-width: 1800px;
+        margin: 0 auto 115px;
         position: relative;
+        display: flex;
+        @media screen and (max-width: 1280px) {
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+    }
+    &-col {
+        @media screen and (max-width: 1280px) {
+            width: 100%;
+            margin-bottom: 50px;
+        }
         @media screen and (max-width: 768px) {
-            padding-left: 0;
+            margin-bottom: 30px;
         }
     }
     &-logo {
         img {
-            @media screen and (max-width: 1024px) {
-                width: 300px;
+            @media screen and (max-width: 768px) {
+                width: 250px;
             }
-            @media screen and (max-width: 1024px) {
-                width: 200px;
+        }
+    }
+    &-txt {
+        font-size: 22px;
+        font-weight: bold;
+        color: #fff;
+        padding: 25px 0 0 75px;
+        line-height: 1.6;
+        @media screen and (max-width: 768px) {
+            font-size: 16px;
+            padding: 20px 0 0 40px;
+        }
+        span {
+            font-size: 32px;
+            @media screen and (max-width: 768px) {
+                font-size: 20px;
             }
         }
     }
     &-nav {
         display: flex;
-        margin-top: 50px;
-        padding-left: 20px;
+        padding-left: 6%;
         margin-bottom: 45px;
         @media screen and (max-width: 768px) {
+            width: 100%;
             margin-top: 30px;
             padding-left: 0;
             margin-bottom: 30px;
+            justify-content: space-between;
         }
         ul {
-            width: 330px;
+            width: 246px;
             @media screen and (max-width: 768px) {
-                width: 50%;
+                width: 45%;
             }
             li {
+                margin-bottom: 45px;
                 a {
                     display: block;
                     color: #fff;
                     font-size: 18px;
-                    padding: 22px 0;
                     @media screen and (max-width: 768px) {
                         font-size: 13px;
-                        padding: 10px 5px;
                         line-height: 1.5;
                     }
                 }
@@ -55,9 +79,6 @@
         }
     }
     &-socical {
-        position: absolute;
-        right: 0;
-        top: -20px;
         display: flex;
         @media screen and (max-width: 768px) {
             position: static;
@@ -79,6 +100,7 @@
         text-align: right;
         color: #fff;
         font-size: 13px;
+        padding-right: 40px;
         @media screen and (max-width: 768px) {
             font-size: 11px;
         }

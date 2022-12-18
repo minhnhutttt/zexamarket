@@ -7,7 +7,6 @@ import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import ButtonLink from "../../components/Button"
 import { FaListAlt } from "react-icons/fa"
 import RelatedItems from "../../components/RelatedItems"
-import Category from "../../components/Category"
 import * as animated from "../../styles/animated.module.scss"
 import { ObserverContext } from "../../provider/IntersectionObserverProvider"
 import { handleObserver } from "../../utils/IntersectionObserver"
@@ -344,7 +343,6 @@ const Single = ({ data }) => {
           </div>
         </div>
         <RelatedItems />
-        <Category />
       </div>
     </Layout>
   )

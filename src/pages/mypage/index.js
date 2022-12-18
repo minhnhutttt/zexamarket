@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
-import * as styles from "./mypage.module.scss"
+import * as styles from "./Mypage.module.scss"
 import { StaticImage } from "gatsby-plugin-image"
 import CardItems from "../../components/Card/CardItems"
 import Category from "../../components/Category"
@@ -115,7 +115,6 @@ const Index = ({ data }) => {
                         <tr>
                           <td className={styles.mypageTableContentDate}>
                             2022-10-10
-                            <br />
                             09:39:40
                           </td>
                           <td>
@@ -137,7 +136,6 @@ const Index = ({ data }) => {
                         <tr>
                           <td className={styles.mypageTableContentDate}>
                             2022-10-10
-                            <br />
                             09:39:40
                           </td>
                           <td>
@@ -159,7 +157,6 @@ const Index = ({ data }) => {
                         <tr>
                           <td className={styles.mypageTableContentDate}>
                             2022-10-10
-                            <br />
                             09:39:40
                           </td>
                           <td>
@@ -199,12 +196,21 @@ export const query = graphql`
           id
           favourite
           myFavourite
-          collection
           name
+          price
+          div
           image {
             childImageSharp {
               gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
             }
+          }
+          user {
+            avatar {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+              }
+            }
+            nickname
           }
         }
       }

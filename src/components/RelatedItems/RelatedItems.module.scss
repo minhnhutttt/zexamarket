@@ -4,15 +4,15 @@
         padding: 60px 0;
     }
     &-ttl {
-        margin-bottom: 55px;
+        margin-bottom: 20px;
         @media screen and (max-width: 768px) {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         p {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             position: relative;
             @media screen and (max-width: 768px) {

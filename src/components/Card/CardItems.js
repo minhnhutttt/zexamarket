@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from "./card.module.scss"
+import * as styles from "./Card.module.scss"
 import CardItem from "./CardItem"
 const CardItems = props => {
   return (
@@ -15,6 +15,7 @@ const CardItems = props => {
                 name={item.node.name}
                 collection={item.node.collection}
                 price={item.node.price}
+                div={item.node.div}
                 myFavourite={item.node.myFavourite}
                 favourite={item.node.favourite}
                 user={item.node.user}

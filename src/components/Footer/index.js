@@ -1,25 +1,33 @@
 import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import * as styles from "./footer.module.scss"
+import * as styles from "./Footer.module.scss"
 
 const Footer = () => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerWrap}>
-        <Link to="/" className={styles.footerLogo}>
-          <StaticImage src="../../images/logo-footer.png" alt="ZEXAMARKET" />
-        </Link>
+        <div className={styles.footerCol}>
+          <Link to="/" className={styles.footerLogo}>
+            <StaticImage src="../../images/logo-footer.png" alt="ZEXAMARKET" />
+          </Link>
+          <div className={styles.footerTxt}>
+            過去、現在、未来<br />
+            時をつむぐ<br />
+            NFTマーケットプレイス<br />
+            <span>ZEXAMARKET</span>
+          </div>
+        </div>
         <nav className={styles.footerNav}>
           <ul>
             <li>
               <Link to="/">マーケットプレイス</Link>
             </li>
             <li>
-              <Link to="/">ゼクサマーケットとは？</Link>
+              <Link to="/">ABOUT</Link>
             </li>
             <li>
-              <Link to="/">About</Link>
+              <Link to="/">FAQ</Link>
             </li>
           </ul>
           <ul>
@@ -27,7 +35,10 @@ const Footer = () => {
               <Link to="/">お問い合わせ</Link>
             </li>
             <li>
-              <Link to="/">Privacy Policy</Link>
+              <Link to="/">利用規約</Link>
+            </li>
+            <li>
+              <Link to="/">プライバシーポリシー</Link>
             </li>
           </ul>
         </nav>
@@ -42,10 +53,11 @@ const Footer = () => {
             <StaticImage src="../../images/ic-instagram.png" alt="" />
           </Link>
         </div>
-        <div className={styles.footerCopyright}>
+      </div>
+      
+      <div className={styles.footerCopyright}>
           ©ZEXAMARKET. All rights reserved.
         </div>
-      </div>
     </div>
   )
 }

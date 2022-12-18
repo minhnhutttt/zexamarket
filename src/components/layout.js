@@ -9,12 +9,14 @@ import * as React from "react"
 
 import Header from "./Header"
 import Footer from "./Footer"
+import Backtop from "./Backtop"
 import "../styles/styles.scss"
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
       <main>{children}</main>
+      <Backtop />
       <Footer />
     </>
   )

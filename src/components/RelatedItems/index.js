@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import CardItems from "../Card/CardItems"
-import * as styles from "./relatedItems.module.scss"
+import * as styles from "./RelatedItems.module.scss"
 import { FaImages } from "react-icons/fa"
 import ButtonLink from "../Button"
 import * as animated from "../../styles/animated.module.scss"
@@ -11,7 +11,7 @@ import { handleObserver } from "../../utils/IntersectionObserver"
 const RelatedItems = () => {
   const data = useStaticQuery(graphql`
     query Related {
-      allTopDataJson(limit: 5) {
+      allTopDataJson(limit: 4) {
         edges {
           node {
             id
@@ -20,6 +20,7 @@ const RelatedItems = () => {
             myFavourite
             name
             price
+            div
             image {
               childImageSharp {
                 gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
@@ -45,7 +46,7 @@ const RelatedItems = () => {
       <h4 ref={toTargets} className={`${styles.relatedTtl} ${animated.fadein}`}>
         <p>
           <FaImages />
-          <span>コレクションの他のアイテム</span>
+          <span>おすすめアイテム</span>
         </p>
       </h4>
       <CardItems data={data.allTopDataJson.edges} />

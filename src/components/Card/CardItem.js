@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-import * as styles from "./card.module.scss"
+import * as styles from "./Card.module.scss"
 import * as animated from "../../styles/animated.module.scss"
 import { FaHeart } from "react-icons/fa"
 import { ObserverContext } from "../../provider/IntersectionObserverProvider"
@@ -39,7 +39,7 @@ const CardItem = props => {
         )}
         {!props.isSlider && (
           <>
-            {props.price && <p className={styles.cardPrice}>{props.price}</p>}
+            {props.price && <p className={styles.cardPrice}>{props.price}<span>{props.div}</span></p>}
             <div className={styles.cardFavourite}>
               <button type="button" className={styles.cardFavouriteIcon}>
                 <FaHeart

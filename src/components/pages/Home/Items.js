@@ -9,24 +9,27 @@ import { handleObserver } from "../../../utils/IntersectionObserver"
 const Items = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
-      allTopDataJson(limit: 10) {
+      allTopDataJson(limit: 8) {
         edges {
           node {
             id
-            collection
             favourite
             myFavourite
             name
             price
+            div
             image {
               childImageSharp {
                 gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
               }
             }
-            logo {
-              childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+            user {
+              avatar {
+                childImageSharp {
+                  gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
+                }
               }
+              nickname
             }
           }
         }
@@ -40,7 +43,7 @@ const Items = () => {
   }, [targets])
   return (
     <div ref={toTargets} className={styles.items}>
-      <Title>販売中 NFTs</Title>
+      <Title>販売中 NFT</Title>
       <CardItems data={data.allTopDataJson.edges} />
       <ButtonLink href="/collection">もっと見る</ButtonLink>
     </div>

@@ -1,0 +1,115 @@
+.input {
+    label {
+        display: block;
+        font-size: 32px;
+        color: #333;
+        margin-bottom: 28px;
+        text-transform: uppercase;
+        @media screen and (max-width: 768px) {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        span {
+            color: #fe0000;
+            font-size: 32px;
+            @media screen and (max-width: 768px) {
+                font-size: 16px;
+            }
+        }
+    }
+    &-wrap {
+        padding: 0 20px;
+        position: relative;
+        @media screen and (max-width: 768px) {
+            padding: 0 10px;
+        }
+    }
+    &-count {
+        position: absolute;
+        font-size: 24px;
+        font-weight: bold;
+        color: #999;
+        right: 50px; 
+        bottom: 25px;
+        @media screen and (max-width: 768px) {
+            font-size: 13px;
+            right: 20px;
+            bottom: 5px;
+        }
+    }
+    input, textarea {
+        width: 100%;
+        background-color: #f5f8fa;
+        padding: 20px;
+        border-radius: 5px;
+        border: 0;
+        font-size: 24px;
+        border: 1px solid #a6a6a6;
+        @media screen and (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+    input {
+        height: 80px;
+        @media screen and (max-width: 768px) {
+            height: 60px;
+        }
+    }
+    textarea {
+        height: 255px;
+        @media screen and (max-width: 768px) {
+            height: 120px;
+        }
+    }
+    &-link {
+        &-icon {
+            position: absolute;
+            left: 40px;
+            top: 22px;
+            @media screen and (max-width: 768px) {
+                left: 30px;
+                top: 20px;
+            }
+            img {
+                @media screen and (max-width: 768px) {
+                    width: 20px;
+                }
+            }
+        }
+        input {
+            padding: 20px 60px;
+            @media screen and (max-width: 768px) {
+                padding: 20px 45px;
+            }
+        }
+    }
+    &-clipboard {
+        &-icon {
+            position: absolute;
+            right: 40px;
+            top: 22px;
+            cursor: pointer;
+            @media screen and (max-width: 768px) {
+                top: 18px;
+                right: 30px;
+            }
+            img {
+                @media screen and (max-width: 768px) {
+                    width: 20px;
+                }
+            }
+        }
+    }
+}
+::placeholder { 
+    color: #999;
+    opacity: 1;
+  }
+  
+  :-ms-input-placeholder { 
+    color: #999;
+  }
+  
+  ::-ms-input-placeholder { 
+    color: #999;
+  }

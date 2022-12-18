@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import * as styles from "./header.module.scss"
+import * as styles from "./Header.module.scss"
 import { FaSearch } from "react-icons/fa"
 import { useState } from "react"
 
@@ -14,29 +14,6 @@ const Header = () => {
         <StaticImage src="../../images/logo.png" alt="ZEXAMARKET" />
       </Link>
       <div className={styles.headerInner}>
-        <ul className={styles.headerMenu}>
-          <li>
-            <Link to={"/mypage"}>
-              <StaticImage src="../../images/ic-user.png" alt="ZEXAMARKET" />
-              <span>マイページ</span>
-            </Link>
-          </li>
-          <li>
-            <Link to={"/collection"}>
-              <span>マーケットプレイス</span>
-            </Link>
-          </li>
-          <li>
-            <Link to={"/"}>
-              <span>ストア</span>
-            </Link>
-          </li>
-          <li>
-            <Link to={"/"}>
-              <span>ゼクサマーケットとは？</span>
-            </Link>
-          </li>
-        </ul>
         <div className={styles.headerSearch}>
           <span className={styles.headerSearchIcon}>
             <FaSearch />
@@ -46,6 +23,43 @@ const Header = () => {
             placeholder="商品名、コレクション名、ユーザー名で探す。"
           />
         </div>
+        <ul className={styles.headerMenu}>
+          <li>
+            <Link to={"/mypage"}>
+              <span>マーケットプレイス</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={"/collection"}>
+              <span>ストア</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={"/"}>
+              <span>ABOUT</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={"/"}>
+              <span>FAQ</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={"/"} className={styles.isUser}>
+              <StaticImage src="../../images/ic-user.png" alt="ZEXAMARKET" />
+            </Link>
+          </li>
+          <li>
+            <Link to={"/"}>
+              <StaticImage src="../../images/ic-wallet.png" alt="ZEXAMARKET" />
+            </Link>
+          </li>
+          <li>
+            <Link to={"/"}>
+              <StaticImage src="../../images/ic-shopping-cart.png" alt="ZEXAMARKET" />
+            </Link>
+          </li>
+        </ul>
         <div className={styles.header__toggle}>
           <div className={styles.searchSp}>
             <button
@@ -93,26 +107,33 @@ const Header = () => {
               <ul>
                 <li>
                   <Link to={"/mypage"}>
-                    <StaticImage
-                      src="../../images/ic-user.png"
-                      alt="ZEXAMARKET"
-                    />
-                    <span>マイページ</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={"/collection"}>
                     <span>マーケットプレイス</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/"}>
+                  <Link to={"/collection"}>
                     <span>ストア</span>
                   </Link>
                 </li>
                 <li>
                   <Link to={"/"}>
-                    <span>ゼクサマーケットとは？</span>
+                    <span>ABOUT</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/"}>
+                    <span>FAQ</span>
+                  </Link>
+                </li>
+                <li className={styles.headerMenuSpLink}>
+                  <Link to={"/"} className={styles.isUser}>
+                    <StaticImage src="../../images/ic-user.png" alt="ZEXAMARKET" />
+                  </Link>
+                  <Link to={"/"}>
+                    <StaticImage src="../../images/ic-wallet.png" alt="ZEXAMARKET" />
+                  </Link>
+                  <Link to={"/"}>
+                    <StaticImage src="../../images/ic-shopping-cart.png" alt="ZEXAMARKET" />
                   </Link>
                 </li>
               </ul>

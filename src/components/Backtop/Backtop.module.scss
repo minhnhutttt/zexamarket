@@ -1,0 +1,15 @@
+
+.pageTop {
+    position: fixed;
+    right: 60px;
+    bottom: 60px;
+    z-index: 90;
+    cursor: pointer;
+    @media screen and (max-width: 768px) {
+        right: 20px;
+        bottom: 30px;
+        img {
+            width: 40px;
+        }
+    }
+}

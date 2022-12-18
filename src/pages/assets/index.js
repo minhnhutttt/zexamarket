@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
-import * as styles from "./collection.module.scss"
+import * as styles from "./assets.module.scss"
 import { StaticImage } from "gatsby-plugin-image"
 import CardItems from "../../components/Card/CardItems"
 import SelectBox from "../../components/SelectBox"
@@ -32,32 +32,9 @@ const Index = ({ data }) => {
   }, [products]) //eslint-disable-line
   return (
     <Layout>
-      <div className={styles.collection}>
-        <div>
-          <StaticImage
-            src="../../images/collection-title.png"
-            alt="ZEXAMARKET"
-          />
-        </div>
-        <div className={styles.collectionBrand}>
-          <div className={styles.collectionBrandLogo}>
-            <StaticImage src="../../images/logo-01.png" alt="刻良NFT" />
-          </div>
-          <div className={styles.collectionBrandContent}>
-            <p className={styles.collectionBrandName}>刻良NFT</p>
-            <p className={styles.collectionBrandTxt}>
-              刻良ウイスキーが入った樽は計5樽あり、その中身は合計2,000本の700ml瓶にボトリングされます。
-              <br />
-              ボトリングされる順にシリアル番号化する事で、固有性を持つ「刻良NFT」が発行されます。
-              <br />
-              30年後に樽からボトリングされた刻良ウイスキー現物を「刻良NFTオーナー」に発送します。
-            </p>
-          </div>
-        </div>
-        <div className={styles.collectionHead}>
-          <div className={styles.collectionCount}>
-            アイテム:{data.allTopDataJson.totalCount}
-          </div>
+      <div className={styles.assets}>
+        <div className={styles.assetsTtl}>NFT一覧</div>
+        <div className={styles.assetsHead}>
           <SelectBox />
         </div>
 
@@ -105,6 +82,6 @@ export const query = graphql`
     }
   }
 `
-export const Head = () => <Seo title="Collection" />
+export const Head = () => <Seo title="Assets" />
 
 export default Index
