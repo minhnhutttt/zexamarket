@@ -35,7 +35,8 @@ const Index = ({ data }) => {
       <div className={styles.assets}>
         <div className={styles.assetsTtl}>NFT一覧</div>
         <div className={styles.assetsHead}>
-          <SelectBox />
+            <SelectBox label="絞り込み" values={['すべてのアイテム', 'すべてのアイテム', 'すべてのアイテム']} />
+            <SelectBox label="並び順" values={['新着順', '新着順', '新着順']} />
         </div>
 
 

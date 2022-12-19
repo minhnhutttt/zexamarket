@@ -67,10 +67,10 @@
         margin-bottom: -4px;
         @media screen and (max-width: 1024px) {
             margin-bottom: 20px;
+            width: 100%;
         }
         @media screen and (max-width: 768px) {
             font-size: 18px;
-            width: 100%;
         }
     }
     &-btn {
@@ -95,12 +95,61 @@
         justify-content: space-between;
         padding: 0 60px;
         @media screen and (max-width: 1024px) {
-            align-items: flex-start;
+            align-items: flex-end;
             flex-direction: column;
         }
         @media screen and (max-width: 768px) {
             padding: 0 20px;
+        }
+        &-filter {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+        }
+    }
+}
+.explore {
+    padding: 0 20px;
+    &-ttl {
+        font-weight: bold;
+        font-size: 48px;
+        padding: 60px 40px 0;
+
+        @media screen and (max-width: 1024px) {
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            padding: 30px 0 0;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &-head {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 40px;
+
+        @media screen and (max-width: 768px) {
+            padding: 0;
+            flex-direction: column;
             align-items: flex-end;
         }
     }
+        &-category {
+            &-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 25px -12px 30px;
+                @media screen and (max-width: 768px) {
+                    margin: 25px -5px 20px;
+                }
+            }
+        }
 }

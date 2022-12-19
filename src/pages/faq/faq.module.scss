@@ -3,17 +3,30 @@
     max-width: 1640px;
     padding: 82px 20px;
     margin: 0 auto;
+    @media screen and (max-width: 768px) {
+        padding: 40px 20px;
+    }
     &-ttl {
         text-align: center;
         font-weight: bold;
         font-size: 54px;
+        @media screen and (max-width: 768px) {
+            font-size: 28px;
+        }
     }
     &-anchor {
         display: flex;
+        justify-content: center;
         margin-top: 70px;
+        gap: 20px;
+        @media screen and (max-width: 768px) {
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
         &-item {
             width: 25%;
-            padding: 38px 20px 45px;
+            padding: 38px 10px 45px;
             background-color: rgba(241, 246, 173, 0.5);
             display: flex;
             align-items: center;
@@ -21,14 +34,21 @@
             flex-direction: column;
             border: 5px solid rgba(245, 254, 125, 0.5);
             border-radius: 10px;
-            &+& {
-                margin-left: 20px;
+            @media screen and (max-width: 768px) {
+                width: calc(50% - 20px);
+                padding: 20px;
             }
             &-img {
-                width: 127px;
                 height: 120px;
                 display: flex;
+                align-items: center;
                 justify-content: center;
+                @media screen and (max-width: 768px) {
+                    height: 70px;
+                    img {
+                        width: 60px;
+                    }
+                }
             }
             &-txt {
                 margin-top: 5px;
@@ -36,6 +56,12 @@
                 font-weight: bold;
                 text-align: center;
                 color: #000;
+                @media screen and (max-width: 1024px){
+                    font-size: 30px;
+                }
+                @media screen and (max-width: 768px) {
+                    font-size: 20px;
+                }
             }
         }
     }
@@ -43,6 +69,15 @@
         width: 100%;
         max-width: 1200px;
         margin: 90px auto 0;
+        @media screen and (max-width: 768px) {
+            margin-top: 40px;
+        }
+        &-item {
+            margin-bottom: 80px;
+            @media screen and (max-width: 768px) {
+                margin-bottom: 50px;
+            }
+        }
         &-ttl {
             display: flex;
             align-items: center;
@@ -54,6 +89,10 @@
             padding: 25px;
             border-bottom: 15px solid #f5fe7d;
             margin-bottom: 30px;
+            @media screen and (max-width: 768px) {
+                font-size: 24px;
+                padding: 20px;
+            }
         }
     }
 }

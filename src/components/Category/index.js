@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from "react"
-import * as styles from "./category.module.scss"
+import * as styles from "./Category.module.scss"
 import * as animated from "../../styles/animated.module.scss"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Title from "../Title"
-import Img from "gatsby-image"
+import CategoryItem from "./categoryItem"
 import ButtonLink from "../Button"
 import { ObserverContext } from "../../provider/IntersectionObserverProvider"
 import { handleObserver } from "../../utils/IntersectionObserver"
@@ -38,19 +38,7 @@ const Category = () => {
       <div className={styles.categoryWrap}>
         {data.allCatDataJson.edges.map((item, index) => {
           return (
-            <Link
-              to="#"
-              ref={toTargets}
-              className={`${styles.categoryItem} ${animated.fadein}`}
-              key={index}
-            >
-              <div className={styles.categoryItemInner}>
-                <div>
-                  <Img fluid={item.node.image.childImageSharp.fluid} />
-                </div>
-                <p className={styles.categoryItemName}>{item.node.name}</p>
-              </div>
-              </Link>
+              <CategoryItem key={index} name={item.node.name} imgSrc={item.node.image.childImageSharp.fluid} />
           )
         })}
       </div>

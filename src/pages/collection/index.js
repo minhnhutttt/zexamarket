@@ -58,7 +58,10 @@ const Index = ({ data }) => {
           <div className={styles.collectionCount}>
             アイテム:{data.allTopDataJson.totalCount}
           </div>
-          <SelectBox />
+          <div className={styles.collectionHeadFilter}>
+            <SelectBox label="絞り込み" values={['すべてのアイテム', 'すべてのアイテム', 'すべてのアイテム']} />
+            <SelectBox label="並び順" values={['新着順', '新着順', '新着順']} />
+          </div>
         </div>
 
 
