@@ -1,8 +1,8 @@
-import * as React from "react"
-import { useEffect, useContext } from 'react'
+import React ,{ useEffect, useContext } from 'react'
 import { ObserverContext } from "../../provider/IntersectionObserverProvider";
 import { handleObserver } from '../../utils/IntersectionObserver'
 import * as styles from "./question.module.scss"
+import * as animated from "../../styles/animated.module.scss"
 const Question = ({ id, question, answer }) => {
     const [isActive, setActive] = React.useState(false);
     const { toTargets, targets } = useContext(ObserverContext);
@@ -15,7 +15,7 @@ const Question = ({ id, question, answer }) => {
       handleObserver(targets)
     }, [targets])
     return (
-        <div ref={toTargets} className={styles.questionWrapper}>
+        <div ref={toTargets} className={`${styles.questionWrapper} ${animated.fadein}`}>
             <div className={styles.question} id={id}>
                 <h3>{question}</h3>
                 <button onClick={() => handleClick(id)} className={isActive ? `${styles.faqToggle} ${styles.isActive}` : `${styles.faqToggle}`}>

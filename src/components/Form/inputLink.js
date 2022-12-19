@@ -3,6 +3,7 @@ import { useEffect, useContext } from 'react'
 import { ObserverContext } from "../../provider/IntersectionObserverProvider";
 import { handleObserver } from '../../utils/IntersectionObserver'
 import * as styles from "./form.module.scss"
+import * as animated from "../../styles/animated.module.scss"
 import { StaticImage } from "gatsby-plugin-image"
 const InputLink = ({ label, name, required, placeholder = ""}) => {
     const { toTargets, targets } = useContext(ObserverContext);
@@ -12,7 +13,7 @@ const InputLink = ({ label, name, required, placeholder = ""}) => {
     }, [targets])
 
     return (
-        <div ref={toTargets} className={`${styles.input} ${styles.inputLink}`}>
+        <div ref={toTargets} className={`${styles.input} ${styles.inputLink} ${animated.fadein}`}>
             <label for={'id_' + name}>{required && <><span>*</span></>}{label}</label>
             <div className={styles.inputWrap}><input type="text" id={'id_' + name} name={name} placeholder={placeholder} />
             <p className={styles.inputLinkIcon}>

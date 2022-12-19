@@ -1,12 +1,9 @@
-import React, { useEffect, useContext } from "react"
+import React from "react"
 import * as styles from "./Category.module.scss"
-import * as animated from "../../styles/animated.module.scss"
 import { useStaticQuery, graphql } from "gatsby"
 import Title from "../Title"
 import CategoryItem from "./categoryItem"
 import ButtonLink from "../Button"
-import { ObserverContext } from "../../provider/IntersectionObserverProvider"
-import { handleObserver } from "../../utils/IntersectionObserver"
 const Category = () => {
   const data = useStaticQuery(graphql`
     query MyQuery2 {
@@ -27,11 +24,6 @@ const Category = () => {
       }
     }
   `)
-  const { toTargets, targets } = useContext(ObserverContext)
-
-  useEffect(() => {
-    handleObserver(targets)
-  }, [targets])
   return (
     <div className={styles.category}>
       <Title>コレクション</Title>

@@ -75,13 +75,14 @@
                         gap: 10px;
                         padding: 20px;
                         @media screen and (max-width: 768px) {
-                            font-size: 14px;
+                            font-size: 18px;
                         }
                     }
                 }
             }
             &-link {
                 display: flex;
+                gap: 15px;
             }
             .hamburger {
                 position: fixed;
@@ -166,7 +167,7 @@
 .hamburger {
     padding: 15px 20px;
     cursor: pointer;
-    z-index: 99;
+    z-index: 90;
     @media screen and (max-width: 768px) {
         top: 2px;
         right: 0;
@@ -232,3 +233,92 @@
     }
 }
 
+.wallet {
+    &-modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &-logo {
+            img {
+                @media screen and (max-width: 768px) {
+                    width: 200px;
+                }
+            }
+        }
+        &-ttl {
+            text-align: center;
+            font-size: 48px;
+            color: #fff;
+            font-weight: bold;
+            @media screen and (max-width: 768px) {
+                font-size: 24px;
+            }
+        }
+        &-txt {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #fff;
+            line-height: 2.3;
+            @media screen and (max-width: 768px) {
+                font-size: 14px;
+                margin-top: 15px;
+            }
+            a {
+                color: #2291d0;
+            }
+        }
+        &-btn {
+            margin-top: 55px;
+            display: flex;
+            gap: 20px;
+            @media screen and (max-width: 768px) {
+                margin-top: 25px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            a {
+                width: 320px;
+                height: 70px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                border-radius: 10px;
+                position: relative;
+                @media screen and (max-width: 768px) {
+                    width: 280px;
+                    height: 50px;
+                    font-size: 16px;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 15px;
+                    border-width: 0 3px 3px 0;
+                    display: inline-block;
+                    padding: 3px;
+                    transform: rotate(-45deg);
+                    -webkit-transform: rotate(-45deg);
+                    @media screen and (max-width: 768px) {
+                        border-width: 0 2px 2px 0;
+                    }
+                }
+            }
+            &-01 {
+                color: #000;
+                background-color: #f5fe7d;
+                &:after {
+                    border: solid black;
+                }
+            }
+            &-02 {
+                color: #fff;
+                background-color: #000;
+                &:after {
+                    border: solid #fff;
+                }
+            }
+        }
+    }
+}

@@ -42,7 +42,7 @@ const Index = ({ data }) => {
 
         <CardItems data={products} />
         {hasMore && (
-          <div className={styles.collectionBtn}>
+          <div className={styles.assetsBtn}>
             <button onClick={handleLoadMore}>
               <StaticImage src="../../images/more.png" alt="more" />
             </button>

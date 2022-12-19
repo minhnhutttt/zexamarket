@@ -3,6 +3,7 @@ import { useEffect, useContext } from 'react'
 import { ObserverContext } from "../../provider/IntersectionObserverProvider";
 import { handleObserver } from '../../utils/IntersectionObserver'
 import * as styles from "./form.module.scss"
+import * as animated from "../../styles/animated.module.scss"
 import { StaticImage } from "gatsby-plugin-image"
 const InputClipboard = ({ label, name, value = ""}) => {
     const { toTargets, targets } = useContext(ObserverContext);
@@ -12,7 +13,7 @@ const InputClipboard = ({ label, name, value = ""}) => {
     }, [targets])
 
     return (
-        <div ref={toTargets} className={`${styles.input} ${styles.inputClipboard}`}>
+        <div ref={toTargets} className={`${styles.input} ${styles.inputClipboard} ${animated.fadein}`}>
             <label for={'id_' + name}>{label}</label>
             <div className={styles.inputWrap}><input type="text" id={'id_' + name} name={name} value={value} readOnly />
             <button type="button" className={styles.inputClipboardIcon} onClick={() => {navigator.clipboard.writeText(value)}}>

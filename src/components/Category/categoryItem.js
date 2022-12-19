@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { ObserverContext } from "../../provider/IntersectionObserverProvider"
 import { handleObserver } from "../../utils/IntersectionObserver"
-const CategoryItem = ({name, imgSrc, key}) => {
+const CategoryItem = ({name, imgSrc}) => {
     const { toTargets, targets } = useContext(ObserverContext)
 
     useEffect(() => {
@@ -16,7 +16,6 @@ const CategoryItem = ({name, imgSrc, key}) => {
             to="#"
             ref={toTargets}
             className={`${styles.categoryItem} ${animated.fadein}`}
-            key={key}
         >
             <div className={styles.categoryItemInner}>
                 <div>

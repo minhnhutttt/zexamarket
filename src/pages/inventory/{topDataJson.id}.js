@@ -1,10 +1,9 @@
-import React, { useEffect, useContext } from "react"
+import React, { useEffect, useContext, useState } from "react"
 import Layout from "../../components/layout"
 import { graphql, Link } from "gatsby"
 import * as styles from "./inventory.module.scss"
 import Seo from "../../components/seo"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
-import ButtonLink from "../../components/Button"
 import { FaListAlt } from "react-icons/fa"
 import RelatedItems from "../../components/RelatedItems"
 import * as animated from "../../styles/animated.module.scss"
@@ -12,7 +11,24 @@ import { ObserverContext } from "../../provider/IntersectionObserverProvider"
 import { handleObserver } from "../../utils/IntersectionObserver"
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
+import Modal from 'react-modal';
 Exporting(Highcharts);
+Modal.setAppElement('#___gatsby');
+
+const modalStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.58)",
+  },
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    borderRadius: '20px'
+  },
+};
 
 const Single = ({ data }) => {
   const { toTargets, targets } = useContext(ObserverContext)
@@ -109,10 +125,16 @@ const Single = ({ data }) => {
     });
   }, [])
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const [isSell, setIsSell] = useState(true);
+
   return (
     <Layout>
       <div className={styles.single}>
-
         <div className={styles.singleWrap}>
           <div className={`${styles.singleFlex} ${styles.isStart}`}>
             <div
@@ -140,8 +162,92 @@ const Single = ({ data }) => {
                       <p key={index}>{tag}</p>
                     ))}
                   </div>
-                  <div className={styles.singleArticleBtn}>
-                    <ButtonLink href="/">出品する</ButtonLink>
+                  <div className={styles.singleArticleBtnWrap}>
+                    <button type="button" onClick={()=> setModalOpen(true)} className={styles.singleArticleBtn}>出品する</button>
+                    <Modal
+                      isOpen={modalOpen}
+                      onRequestClose={closeModal}
+                      contentLabel="Modal"
+                      style={modalStyles}
+                    >
+                      <div className={styles.singleModal}>
+                        <button className={styles.singleModalClose} onClick={closeModal}>
+                        <StaticImage src="../../images/close.png" alt="ZEXAMARKET" />
+                        </button>
+                        <div className={styles.singleModalWrap}>
+                          <div className={styles.singleModalTtl}>
+                              販売NFT情報
+                            </div>
+                          <div className={styles.singleModalHead}>
+                            <div className={styles.singleModalHeadProduct}>
+                                <div className={styles.singleModalHeadProductImg}>
+                                  <GatsbyImage image={pathImg} alt={name} />
+                                </div>
+                                <div className={styles.singleModalHeadProductTxt}>
+                                  信長NFT首将達 #0177
+                                </div>
+                              </div>
+                              {!isSell && 
+                                <div className={styles.singleModalHeadProductPrice}>
+                                  <p>22.34 DIV</p>
+                                  <p>3,800円</p>
+                                </div>
+                              }
+                          </div>
+                          {isSell ?
+                          <div className={styles.singleModalContent}>
+                            <div className={styles.singleModalContentPrice}>
+                              <p className={styles.singleModalTxt}>販売価格</p>
+                              <div>
+                                <input type="text" placeholder="販売価格を入力してください。" />
+                                <span>DIV</span>
+                              </div>
+                            </div>  
+                            <div className={styles.singleModalContentHistory}>
+                              <p className={styles.singleModalTxt}>ゼクサマーケットでの取引履歴</p>
+                              <p className={styles.singleModalTxt2}>この商品は過去に、以下の価格で取引されました。</p>
+                              <div className={styles.singleModalContentHistoryTable}>
+                                  <div>
+                                    <p>売却済</p>
+                                    <p>234.57 DIV</p>
+                                    <p>2022-12-12 13:14:48</p>
+                                  </div>
+                                  <div>
+                                    <p>売却済</p>
+                                    <p>234.57 DIV</p>
+                                    <p>2022-12-12 13:14:48</p>
+                                  </div>
+                                  <div>
+                                    <p>売却済</p>
+                                    <p>234.57 DIV</p>
+                                    <p>2022-12-12 13:14:48</p>
+                                  </div>
+                                  <div>
+                                    <p>売却済</p>
+                                    <p>234.57 DIV</p>
+                                    <p>2022-12-12 13:14:48</p>
+                                  </div>
+                              </div>
+                              <button type="button" onClick={()=> setIsSell(false)} className={styles.singleArticleBtn}>出品する</button>
+                            </div>
+                          </div>
+                          : 
+                          
+                          <div className={styles.singleModalBuy}>
+                              <p className={styles.singleModalTxt}>取引情報</p>
+                              <div className={styles.singleModalBuyInfo}>
+                                <p>数量</p>
+                                <p>1</p>
+                              </div>
+                              <p className={styles.singleModalTxt}>ウォレットに移動</p>
+                              <div className={styles.singleModalBuyInfo}>
+                                <p>この購入をウォレットから承認するよう求められます。</p>
+                              </div>
+                          </div>
+                          }
+                        </div>
+                      </div>
+                    </Modal>
                   </div>
                   <div className={styles.singleArticleUser}>
                     <div className={styles.singleArticleUserAvatar}>

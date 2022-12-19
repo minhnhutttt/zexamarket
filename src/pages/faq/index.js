@@ -1,10 +1,13 @@
-import React from "react"
+import React, {useEffect,useContext} from "react"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import * as styles from "./faq.module.scss"
+import * as animated from "../../styles/animated.module.scss"
 import { StaticImage } from "gatsby-plugin-image"
-import Question from "../../components/faq/question"
+import Question from "../../components/Faq/question"
 import AnchorLink from 'react-anchor-link-smooth-scroll-v2'
+import { ObserverContext } from "../../provider/IntersectionObserverProvider"
+import { handleObserver } from "../../utils/IntersectionObserver"
 const introduction = [
     {
         id: 1,
@@ -120,13 +123,18 @@ const other = [
     }
 ]
 const Index = () => {
+    const { toTargets, targets } = useContext(ObserverContext)
+
+    useEffect(() => {
+        handleObserver(targets)
+    }, [targets])
     return (
         <Layout>
             <div className={styles.faq}>
                 <div className={styles.faqTtl}>
                     FAQ
                 </div>
-                <div className={styles.faqAnchor}>
+                <div ref={toTargets} className={`${styles.faqAnchor} ${animated.fadein}`}>
                     <AnchorLink href="#introduction" className={styles.faqAnchorItem}>
                         <div className={styles.faqAnchorItemImg}>
                             <StaticImage src="../../images/faq-01.png" alt="" />
@@ -154,19 +162,19 @@ const Index = () => {
                 </div>
                 <div className={styles.faqContent}>
                     <div id="introduction" className={styles.faqContentItem}>
-                        <div className={styles.faqContentTtl}>はじめに</div>
+                        <div ref={toTargets} className={`${styles.faqContentTtl}  ${animated.fadein}`}>はじめに</div>
                         {introduction.map(item => <Question key={item.id} question={item.question} answer={item.answer} />)}
                     </div>
                     <div id="purchase" className={styles.faqContentItem}>
-                        <div className={styles.faqContentTtl}>はじめに</div>
+                        <div ref={toTargets} className={`${styles.faqContentTtl}  ${animated.fadein}`}>はじめに</div>
                         {purchase.map(item => <Question key={item.id} question={item.question} answer={item.answer} />)}
                     </div>
                     <div id="sale" className={styles.faqContentItem}>
-                        <div className={styles.faqContentTtl}>販売</div>
+                        <div ref={toTargets} className={`${styles.faqContentTtl}  ${animated.fadein}`}>販売</div>
                         {sale.map(item => <Question key={item.id} question={item.question} answer={item.answer} />)}
                     </div>
                     <div id="other" className={styles.faqContentItem}>
-                        <div className={styles.faqContentTtl}>そ䛾他</div>
+                        <div ref={toTargets} className={`${styles.faqContentTtl}  ${animated.fadein}`}>そ䛾他</div>
                         {other.map(item => <Question key={item.id} question={item.question} answer={item.answer} />)}
                     </div>
                 </div>
